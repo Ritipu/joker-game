@@ -1,0 +1,16 @@
+{
+    "questions": [
+        {
+            "level": "easy",
+            "number": 1,
+            "question": "Pergunta muito muito easy",
+            "options": [
+                {"key": "a", "text": "Texto da Opção A"},
+                {"key": "b", "text": "Texto da Opção B"},
+                {"key": "c", "text": "Texto da Opção C"},
+                {"key": "d", "text": "Texto da Opção D"}
+            ],
+            "answer": "c"
+        }
+    ]
+}
