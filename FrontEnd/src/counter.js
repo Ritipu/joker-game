@@ -8,21 +8,36 @@ export default class Counter extends React.Component {
 		}
 	}
 
-	incrementa = () => {
-		fetch("/contador").then(res => {
-			return res.json();
-		})
-		.then(contador => {
-			console.log(contador)
-			this.setState({counter: contador})
-		})
+	componentDidMount() {
+		this.apanhaValor()
+	}
+
+	apanhaValor() {
+		fetch("/contador").then(res => res.json())
+			.then(contador => {
+				this.setState({ counter: contador })
+			})
 	}
 
 	render() {
 		return (
-			<div>
+			<div id="teste">
 				<h1>Contador {this.state.counter}</h1>
-				<button onClick={this.incrementa}>Incrementa</button>
+				<button onClick={
+					async (valor) => {
+						try {
+							const res = await fetch("/contador", {
+								method: 'POST',
+								headers: {
+									"Content-Type": "application/json"
+								}
+							})
+							this.apanhaValor()
+						} catch (err) {
+							console.log(err);
+						}
+					}
+				}>Incrementa</button>
 			</div>
 		)
 	}
