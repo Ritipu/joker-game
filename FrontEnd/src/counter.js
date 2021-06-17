@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 
 export default class Counter extends React.Component {
 	constructor(props) {
@@ -10,11 +9,14 @@ export default class Counter extends React.Component {
 	}
 
 	incrementa = () => {
-		axios.get("/contador").then(res => {
-			console.log(res.data);
-			this.setState({counter: res.data})
+		fetch("/contador").then(res => {
+			return res.json();
 		})
-	};
+		.then(contador => {
+			console.log(contador)
+			this.setState({counter: contador})
+		})
+	}
 
 	render() {
 		return (
