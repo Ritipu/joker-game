@@ -6,10 +6,17 @@ export default class Counter extends React.Component {
 		this.state = {
 			counter: 0
 		}
+		this.ws = new WebSocket('ws://localhost:8080')
 	}
 
 	componentDidMount() {
 		this.apanhaValor()
+
+		this.ws.addEventListener('message', (event) => {
+			if (event.data === 'update') {
+				this.apanhaValor()
+			}
+		})
 	}
 
 	apanhaValor() {
@@ -23,6 +30,7 @@ export default class Counter extends React.Component {
 		return (
 			<div id="teste">
 				<h1>Contador {this.state.counter}</h1>
+
 				<button onClick={
 					async (valor) => {
 						try {
@@ -32,12 +40,26 @@ export default class Counter extends React.Component {
 									"Content-Type": "application/json"
 								}
 							})
-							this.apanhaValor()
 						} catch (err) {
 							console.log(err);
 						}
 					}
 				}>Incrementa</button>
+
+				<button onClick={
+					async (valor) => {
+						try {
+							const res = await fetch("/contador", {
+								method: 'DELETE',
+								headers: {
+									"Content-Type": "application/json"
+								}
+							})
+						} catch (err) {
+							console.log(err);
+						}
+					}
+				}>Decrementa por 10</button>
 			</div>
 		)
 	}
