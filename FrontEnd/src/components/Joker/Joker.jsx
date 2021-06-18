@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from './Jokers.css';
+import './Joker.css';
 
 
-function Jokers() {
+function Joker() {
 
 
     return (
@@ -13,4 +13,4 @@ function Jokers() {
 
 }
 
-export default Jokers;
+export default Joker;

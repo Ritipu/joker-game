@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Pontuacao.css';
+import './Pontuacao.css';
 
 
 function Pontuacao1() {

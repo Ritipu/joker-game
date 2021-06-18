@@ -1,15 +1,15 @@
 import React from 'react';
-import styles from './Perguntas.css';
+import './Pergunta.css';
 
 
-function Perguntas() {
+function Pergunta() {
 
     return (
-        <div className="perguntas">
+        <div className="Pergunta">
             
         </div>
     )
 }
 
 
-export default Perguntas;
+export default Pergunta;
