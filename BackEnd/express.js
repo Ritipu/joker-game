@@ -39,7 +39,7 @@ server.delete("/contador/", async (req, res) => {
 		const conteudo = await fs.readFile(CONTADOR_JSON)
 		const conteudoLegivel = JSON.parse(conteudo) // 20
 		// Gravacao no JSON
-		conteudoLegivel.count = conteudoLegivel.count - 100
+		conteudoLegivel.count = conteudoLegivel.count - 10
 
 		await fs.writeFile(CONTADOR_JSON, JSON.stringify(conteudoLegivel, null, 2))
 
