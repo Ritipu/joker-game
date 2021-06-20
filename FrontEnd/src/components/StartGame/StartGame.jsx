@@ -1,5 +1,6 @@
 import './StartGame.css';
 import Counter from '../../counter'
+import Pergunta from '../Pergunta/Pergunta'
 import React from 'react';
 
 export default class StartGame extends React.Component {
@@ -22,6 +23,7 @@ export default class StartGame extends React.Component {
           <header className="StartGame-header">
             <img className="LogoStartGame-logo" src="assets/logos/logo.png" alt="Logo" />
             <p>QUESTIONS</p>
+            <input type="text" className="StartGame-input" placeholder="Who's That Player?"></input>
             <button className="StartGame-button" onClick={this.jogo}>  <img src="/assets/imagens/pokeball.png" alt="Background" /> </button>
           </header>
         </div>
@@ -30,7 +32,7 @@ export default class StartGame extends React.Component {
       return (
         <div className="StartGame">
           <header className="StartGame-header">
-           
+            <Pergunta />
             <Counter />
           </header>
         </div>
