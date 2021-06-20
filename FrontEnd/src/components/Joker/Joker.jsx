@@ -2,15 +2,14 @@ import React from 'react';
 import './Joker.css';
 
 
-function Joker() {
+export default class Joker extends React.Component {
 
-
-    return (
-        <div className="jokers">
-            
-        </div>
-    )
-
+    render() {
+        return (
+            <div className="jokers">
+                
+            </div>
+        )
+    }
 }
 
-export default Joker;
