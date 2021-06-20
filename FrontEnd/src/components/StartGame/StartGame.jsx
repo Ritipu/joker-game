@@ -19,13 +19,16 @@ export default class StartGame extends React.Component {
   render() {
     if (this.state.gameStart === false) {
       return (
-        <div className="MenuStartGame">
-          <header className="StartGame-header">
+        <div className="StartGame-header">
+
+            <video id="bg_intro" autoPlay loop>
+              <source src="/assets/videos/intro.mov" type="video/mp4"/>
+            </video>
+
             <img className="LogoStartGame-logo" src="assets/logos/logo.png" alt="Logo" />
             <p>QUESTIONS</p>
             <input type="text" className="StartGame-input" placeholder="Who's that player?"></input>
             <button className="StartGame-button" onClick={this.jogo}>  <img src="/assets/imagens/pokeball.png" alt="Background" /> </button>
-          </header>
         </div>
       )
     } else {
