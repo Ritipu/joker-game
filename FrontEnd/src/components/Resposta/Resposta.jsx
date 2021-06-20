@@ -1,14 +1,14 @@
 import React from 'react';
-import styles from './Respostas.css';
+import './Respostas.css';
 
-function Respostas() {
+function Resposta() {
 
     return (
-        <div className="respostas">
+        <div className="Resposta">
             
         </div>
     )
 }
 
 
-export default Respostas;
+export default Resposta;
