@@ -7,7 +7,7 @@ class Pergunta extends React.Component {
     };
 
     componentDidMount() {
-        fetch("../../Backend/perguntas.json")
+        fetch("../../../Backend/perguntas.json")
             .then(response => response.json())
             .then(questions => this.setState({ questions }))
     }
