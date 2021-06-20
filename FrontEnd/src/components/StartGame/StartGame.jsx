@@ -1,5 +1,4 @@
 import './StartGame.css';
-import Counter from '../../counter'
 import Pergunta from '../Pergunta/Pergunta'
 import React from 'react';
 
@@ -23,6 +22,7 @@ export default class StartGame extends React.Component {
 
             <video id="bg_intro" autoPlay loop>
               <source src="/assets/videos/intro.mov" type="video/mp4"/>
+              <source src="/assets/videos/intro.mov" type="video/ogg"/>
             </video>
 
             <img className="LogoStartGame-logo" src="assets/logos/logo.png" alt="Logo" />
@@ -36,8 +36,6 @@ export default class StartGame extends React.Component {
         <div className="StartGame">
           <header className="StartGame-header">
             <Pergunta />
-            <Counter />
-            <img src="/assets/imagens/oak.png" />
           </header>
         </div>
       )

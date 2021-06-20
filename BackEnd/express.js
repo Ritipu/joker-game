@@ -3,50 +3,32 @@ import * as fs from "fs/promises"
 
 const server = express();
 const port = 3001;
-const CONTADOR_JSON = "contador.json"
+const PERGUNTAS_JSON = "perguntas.json"
 
+// const mediumQuestions = questoes.filter(elem => elem.level === 'medium')
+// const hardQuestions = questoes.filter(elem => elem.level === 'hard')
 
 server.use(express.json())
 
-server.get("/contador", async (req, res) => {
+server.get("/perguntasEasy", async (req, res) => {
 	try {
-		const conteudo = await fs.readFile(CONTADOR_JSON)
+		const conteudo = await fs.readFile(PERGUNTAS_JSON)
+
 		const conteudoLegivel = JSON.parse(conteudo.toString())
-		res.status(200).json(conteudoLegivel.count)
+
+		const questoes = conteudoLegivel.questions
+
+		const easyQuestions = questoes.filter(elem => elem.level === 'easy')
+
+
+		const indiceQuestionsEasy = Math.floor(Math.random() * (easyQuestions.length - 0)) + 0
+
+		const easySet = new Set()
+		console.log(easySet)
+
+		res.status(200).json(easyQuestions[indiceQuestionsEasy])
 	} catch (err) {
 		res.status(500).send("Erro a ler o contador")
-	}
-})
-
-server.post("/contador/", async (req, res) => {
-	try {
-		const conteudo = await fs.readFile(CONTADOR_JSON)
-		const conteudoLegivel = JSON.parse(conteudo) // 20
-		// Gravacao no JSON
-		conteudoLegivel.count = conteudoLegivel.count + 1
-
-		await fs.writeFile(CONTADOR_JSON, JSON.stringify(conteudoLegivel, null, 2))
-
-		res.sendStatus(200)
-
-	} catch (err) {
-		res.status(500).send("Erro a actualizar o contador")
-	}
-})
-
-server.delete("/contador/", async (req, res) => {
-	try {
-		const conteudo = await fs.readFile(CONTADOR_JSON)
-		const conteudoLegivel = JSON.parse(conteudo) // 20
-		// Gravacao no JSON
-		conteudoLegivel.count = conteudoLegivel.count - 10
-
-		await fs.writeFile(CONTADOR_JSON, JSON.stringify(conteudoLegivel, null, 2))
-
-		res.sendStatus(200)
-
-	} catch (err) {
-		res.status(500).send("Erro a actualizar o contador")
 	}
 })
 
