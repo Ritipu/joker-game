@@ -3,14 +3,327 @@
         {
             "level": "easy",
             "number": 1,
-            "question": "Pergunta muito muito easy",
+            "question": "Os primeiros jogos de Pokemon saíram em que ano?",
             "options": [
-                {"key": "a", "text": "Texto da Opção A"},
-                {"key": "b", "text": "Texto da Opção B"},
-                {"key": "c", "text": "Texto da Opção C"},
-                {"key": "d", "text": "Texto da Opção D"}
+                {"key": "a", "text": "1996"},
+                {"key": "b", "text": "1997"},
+                {"key": "c", "text": "1998"},
+                {"key": "d", "text": "1995"}
+            ],
+            "answer": "a"
+        },
+        {
+            "level": "easy",
+            "number": 2,
+            "question": "Os primeiros jogos de Pokemon foram quais?",
+            "options": [
+                {"key": "a", "text": "Red e Blue"},
+                {"key": "b", "text": "Yellow e Red"},
+                {"key": "c", "text": "Green e Blue"},
+                {"key": "d", "text": "Red e Green"}
+            ],
+            "answer": "d"
+        },
+        {
+            "level": "easy",
+            "number": 3,
+            "question": "Qual destes Pokemon é o Pokemon Deus?",
+            "options": [
+                {"key": "a", "text": "Mew"},
+                {"key": "b", "text": "Arceus"},
+                {"key": "c", "text": "Mewtwo"},
+                {"key": "d", "text": "Celebi"}
+            ],
+            "answer": "b"
+        },
+        {
+            "level": "easy",
+            "number": 4,
+            "question": "O Pokemon GO saiu em que ano?",
+            "options": [
+                {"key": "a", "text": "2014"},
+                {"key": "b", "text": "2017"},
+                {"key": "c", "text": "2016"},
+                {"key": "d", "text": "2015"}
             ],
             "answer": "c"
+        },
+        {
+            "level": "easy",
+            "number": 5,
+            "question": "Qual o tipo de Pokemon mais comum?",
+            "options": [
+                {"key": "a", "text": "Water"},
+                {"key": "b", "text": "Fire"},
+                {"key": "c", "text": "Grass"},
+                {"key": "d", "text": "Steel"}
+            ],
+            "answer": "a"
+        },
+        {
+            "level": "easy",
+            "number": 6,
+            "question": "Qual o nome do chefe da Team Rocket?",
+            "options": [
+                {"key": "a", "text": "Archie"},
+                {"key": "b", "text": "Ash"},
+                {"key": "c", "text": "Giovanni"},
+                {"key": "d", "text": "Brock"}
+            ],
+            "answer": "c"
+        },
+        {
+            "level": "easy",
+            "number": 7,
+            "question": "Qual o Pokemon parceiro do Ash?",
+            "options": [
+                {"key": "a", "text": "Clefairy"},
+                {"key": "b", "text": "Pikachu"},
+                {"key": "c", "text": "Mew"},
+                {"key": "d", "text": "Raichu"}
+            ],
+            "answer": "b"
+        },
+        {
+            "level": "easy",
+            "number": 8,
+            "question": "Que Pokemon transforma-se numa Pokedex?",
+            "options": [
+                {"key": "a", "text": "Gengar"},
+                {"key": "b", "text": "Rotom"},
+                {"key": "c", "text": "Clefairy"},
+                {"key": "d", "text": "Mew"}
+            ],
+            "answer": "b"
+        },
+        {
+            "level": "easy",
+            "number": 9,
+            "question": "De que cor é uma PokeBola?",
+            "options": [
+                {"key": "a", "text": "Preto, amarelo e branco"},
+                {"key": "b", "text": "Azul, vermelho e branco"},
+                {"key": "c", "text": "Vermelho e branco"},
+                {"key": "d", "text": "Roxo e branco"}
+            ],
+            "answer": "c"
+        },
+        {
+            "level": "easy",
+            "number": 10,
+            "question": "Na segunda geração dos videojogos de Pokemon, existe um boss final escondido no Mt. Silver, qual o seu nome?",
+            "options": [
+                {"key": "a", "text": "Giovanni"},
+                {"key": "b", "text": "Red"},
+                {"key": "c", "text": "Ash"},
+                {"key": "d", "text": "Blue"}
+            ],
+            "answer": "b"
+        },
+        {
+            "level": "medium",
+            "number": 11,
+            "question": "Qual destes Pokemons não é um Pokemon mítico.",
+            "options": [
+                {"key": "a", "text": "Mew"},
+                {"key": "b", "text": "Celebi"},
+                {"key": "c", "text": "Jirachi"},
+                {"key": "d", "text": "Ho-oh"}
+            ],
+            "answer": "d"
+        },
+        {
+            "level": "medium",
+            "number": 12,
+            "question": "Em que geração é que foi possível viajar para duas regiões no mesmo jogo?",
+            "options": [
+                {"key": "a", "text": "2ª geração"},
+                {"key": "b", "text": "3ª geração"},
+                {"key": "c", "text": "5ª geração"},
+                {"key": "d", "text": "4ª geração"}
+            ],
+            "answer": "a"
+        },
+        {
+            "level": "medium",
+            "number": 13,
+            "question": "Qual o nome da equipa que tenta roubar o Pikachu?",
+            "options": [
+                {"key": "a", "text": "Team Rainbow Rocket"},
+                {"key": "b", "text": "Team Magma"},
+                {"key": "c", "text": "Team Galaxy"},
+                {"key": "d", "text": "Team Rocket"}
+            ],
+            "answer": "d"
+        },
+        {
+            "level": "medium",
+            "number": 14,
+            "question": "Quantos ginásios tem que se ganhar até se poder ir para a PokeLiga?",
+            "options": [
+                {"key": "a", "text": "7"},
+                {"key": "b", "text": "8"},
+                {"key": "c", "text": "9"},
+                {"key": "d", "text": "10"}
+            ],
+            "answer": "b"
+        },
+        {
+            "level": "medium",
+            "number": 15,
+            "question": "Quantas gerações existem?",
+            "options": [
+                {"key": "a", "text": "6"},
+                {"key": "b", "text": "7"},
+                {"key": "c", "text": "8"},
+                {"key": "d", "text": "9"}
+            ],
+            "answer": "c"
+        },
+        {
+            "level": "medium",
+            "number": 16,
+            "question": "Quantos filmes de Pokemon existem até ao momento?",
+            "options": [
+                {"key": "a", "text": "35"},
+                {"key": "b", "text": "27"},
+                {"key": "c", "text": "15"},
+                {"key": "d", "text": "22"}
+            ],
+            "answer": "b"
+        },
+        {
+            "level": "medium",
+            "number": 17,
+            "question": "Os eventos do Anime focam-se em que personagem?",
+            "options": [
+                {"key": "a", "text": "Ash"},
+                {"key": "b", "text": "Brock"},
+                {"key": "c", "text": "Jessie"},
+                {"key": "d", "text": "Meowth"}
+            ],
+            "answer": "a"
+        },
+        {
+            "level": "medium",
+            "number": 18,
+            "question": "Em que spin-off assumimos o papel de um Pokemon?",
+            "options": [
+                {"key": "a", "text": "Pokemon Ranger"},
+                {"key": "b", "text": "Pokemon Rumble"},
+                {"key": "c", "text": "Pokemon Mystery Dungeon"},
+                {"key": "d", "text": "Pokemon Stadium"}
+            ],
+            "answer": "c"
+        },
+        {
+            "level": "medium",
+            "number": 19,
+            "question": "Qual o Pokemon ancestral comum?",
+            "options": [
+                {"key": "a", "text": "Ditto"},
+                {"key": "b", "text": "Kangaskhan"},
+                {"key": "c", "text": "Mew"},
+                {"key": "d", "text": "Kabutops"}
+            ],
+            "answer": "c"
+        },
+        {
+            "level": "medium",
+            "number": 20,
+            "question": "Quantos episódios do anime já foram banidos?",
+            "options": [
+                {"key": "a", "text": "4"},
+                {"key": "b", "text": "6"},
+                {"key": "c", "text": "9"},
+                {"key": "d", "text": "7"}
+            ],
+            "answer": "d"
+        },
+        {
+            "level": "hard",
+            "number": 21,
+            "question": "Em Pokemon XD: Gale of Darkness, para a Nintendo GameCube, que Pokemon temos que purificar?",
+            "options": [
+                {"key": "a", "text": "Shadow Lugia"},
+                {"key": "b", "text": "Shadow Ho-oh"},
+                {"key": "c", "text": "Shadow Pikachu"},
+                {"key": "d", "text": "Shadow Mewtwo"}
+            ],
+            "answer": "a"
+        },
+        {
+            "level": "hard",
+            "number": 22,
+            "question": "Quantos Pokemons é que existem ao todo, até à 8ª geração",
+            "options": [
+                {"key": "a", "text": "595"},
+                {"key": "b", "text": "696"},
+                {"key": "c", "text": "898"},
+                {"key": "d", "text": "797"}
+            ],
+            "answer": "c"
+        },
+        {
+            "level": "hard",
+            "number": 23,
+            "question": "A funcionalidade dos ovos e todo o sistema de breeding apareceu em que geração?",
+            "options": [
+                {"key": "a", "text": "1ª geração"},
+                {"key": "b", "text": "2ª geração"},
+                {"key": "c", "text": "3ª geração"},
+                {"key": "d", "text": "4ª geração"}
+            ],
+            "answer": "b"
+        },
+        {
+            "level": "hard",
+            "number": 24,
+            "question": "Que Pokemon se podia capturar na Cerulean Cave, no Pokemon Red, Blue, Yellow e Green",
+            "options": [
+                {"key": "a", "text": "Articuno"},
+                {"key": "b", "text": "Zapdos"},
+                {"key": "c", "text": "Moltres"},
+                {"key": "d", "text": "Mewtwo"}
+            ],
+            "answer": "d"
+        },
+        {
+            "level": "hard",
+            "number": 25,
+            "question": "Qual a Pokebola que tem 100% chances de apanhar um Pokemon?",
+            "options": [
+                {"key": "a", "text": "Moon Ball"},
+                {"key": "b", "text": "Ultra Ball"},
+                {"key": "c", "text": "Master Ball"},
+                {"key": "d", "text": "Beast Ball"}
+            ],
+            "answer": "c"
+        },
+        {
+            "level": "hard",
+            "number": 26,
+            "question": "Em qual dos jogos da 1ª geração, era possível capturar a Mew, através de um glitch?",
+            "options": [
+                {"key": "a", "text": "Blue"},
+                {"key": "b", "text": "Yellow"},
+                {"key": "c", "text": "Green"},
+                {"key": "d", "text": "Red"}
+            ],
+            "answer": "b"
+        },
+        
+        {
+            "level": "hard",
+            "number": 27,
+            "question": "Qual o Pokemon da Misty que causava constantemente problemas para os protagonistas?",
+            "options": [
+                {"key": "a", "text": "Meowth"},
+                {"key": "b", "text": "Staryu"},
+                {"key": "c", "text": "Togepi"},
+                {"key": "d", "text": "Psyduck"}
+            ],
+            "answer": "d"
         }
     ]
 }
