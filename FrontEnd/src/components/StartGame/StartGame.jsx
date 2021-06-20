@@ -34,6 +34,7 @@ export default class StartGame extends React.Component {
           <header className="StartGame-header">
             <Pergunta />
             <Counter />
+            <img src="/assets/imagens/oak.png" />
           </header>
         </div>
       )
