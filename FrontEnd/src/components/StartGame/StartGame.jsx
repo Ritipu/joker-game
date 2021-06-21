@@ -21,8 +21,8 @@ export default class StartGame extends React.Component {
       return (
         <div className="StartGame-header">
 
-            <video id="bg_intro" loop autoPlay mute>
-              <source src="/assets/videos/intro.mov" type="video/mp4"/>
+            <video class="videos" loop autoPlay mute>
+              <source src="/assets/videos/intro.mp4" type="video/mp4"/>
             </video>
 
             <img className="LogoStartGame-logo" src="assets/logos/logo.png" alt="Logo" />
@@ -33,11 +33,15 @@ export default class StartGame extends React.Component {
       )
     } else {
       return (
-        <div className="StartGame">
-          <header className="StartGame-header">
+        <div className="StartGame-header">
             <Joker/>
             <Pergunta />
-          </header>
+
+            <video class="videos" loop autoPlay mute>
+              <source src="/assets/videos/perguntasFaceis.mp4" type="video/mp4"/>
+            </video>
+
+
         </div>
       )
     }
