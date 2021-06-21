@@ -7,6 +7,8 @@ export default class StartGame extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      pergunta: "",
+
       gameStart: false
     }
     this.jogo = this.jogo.bind(this);
@@ -34,9 +36,9 @@ export default class StartGame extends React.Component {
     } else {
       return (
         <div className="StartGame-header">
-            <Joker/>
-            <Corpo />
-
+            <Joker onClick={() => console.log("t")}/>
+            <Corpo pergunta={this.pergunta}/>
+            {console.log(this.state.pergunta)}
             <video class="videos" loop autoPlay mute>
               <source src="/assets/videos/perguntasFaceis.mp4" type="video/mp4"/>
             </video>

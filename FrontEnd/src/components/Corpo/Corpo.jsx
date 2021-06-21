@@ -18,6 +18,7 @@ export default class Corpo extends React.Component {
     componentDidMount() {
         this.getPerguntaEasy();
     }
+
     getPerguntaEasy() {
         fetch("/perguntasEasy")
             .then(response => response.json())
@@ -30,6 +31,9 @@ export default class Corpo extends React.Component {
                 resposta_D: questions.options[3],
                 resposta: questions.answer
             }))
+
+        // fazer comparacao para encontrar uma resposta invalida e 
+        // passar como prop para o StartGame
     }
 
     encontraPerguntaCerta(){

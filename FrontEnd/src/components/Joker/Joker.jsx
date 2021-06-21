@@ -14,6 +14,7 @@ export default class Joker extends React.Component {
 	componentDidMount() {
 		this.arrayPop()
 	}
+
 	arrayPop() {
 		fetch("/joker")
 			.then(res => res.json())
@@ -22,6 +23,7 @@ export default class Joker extends React.Component {
 					joker: teste
 				}
 			))
+			this.props.onClick()
 	}
 
 	render() {
