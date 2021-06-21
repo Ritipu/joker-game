@@ -1,7 +1,7 @@
 import React from 'react';
-import './Pergunta.css';
+import './Corpo.css';
 
-export default class Pergunta extends React.Component {
+export default class Corpo extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -32,9 +32,13 @@ export default class Pergunta extends React.Component {
             }))
     }
 
+    encontraPerguntaCerta(){
+
+    }
+
     render() {
         return (
-            <div className="Pergunta">
+            <div className="Corpo">
                 <h1>{this.state.pergunta}</h1>
                 <br/>
 
@@ -42,9 +46,6 @@ export default class Pergunta extends React.Component {
                 <p>B: {this.state.resposta_B.text}</p>
                 <p>C: {this.state.resposta_C.text}</p>
                 <p>D: {this.state.resposta_D.text}</p>
-
-                <br/>
-                <h2>Resposta: {this.state.resposta}</h2>
 
             </div>
         )

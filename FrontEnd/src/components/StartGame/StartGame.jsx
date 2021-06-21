@@ -1,5 +1,5 @@
 import './StartGame.css';
-import Pergunta from '../Pergunta/Pergunta'
+import Corpo from '../Corpo/Corpo'
 import Joker from '../Joker/Joker'
 import React from 'react';
 
@@ -35,7 +35,7 @@ export default class StartGame extends React.Component {
       return (
         <div className="StartGame-header">
             <Joker/>
-            <Pergunta />
+            <Corpo />
 
             <video class="videos" loop autoPlay mute>
               <source src="/assets/videos/perguntasFaceis.mp4" type="video/mp4"/>
