@@ -19,3 +19,9 @@ Um jogo baseado no programa Joker da RTP1
 <div height="200px" style="background-color: #000000">Preto</div>
 <div height="200px" style="background-color: #A19E9E">Cinzento</div>
 <div height="200px" style="background-color: #58585A">Cinzento Escuro</div>
+
+## Fonts
+
+Google Fonts
+Press Start 2P
+QuickSand

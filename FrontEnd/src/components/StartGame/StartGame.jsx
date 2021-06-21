@@ -1,5 +1,6 @@
 import './StartGame.css';
 import Pergunta from '../Pergunta/Pergunta'
+import Joker from '../Joker/Joker'
 import React from 'react';
 
 export default class StartGame extends React.Component {
@@ -34,6 +35,7 @@ export default class StartGame extends React.Component {
       return (
         <div className="StartGame">
           <header className="StartGame-header">
+            <Joker/>
             <Pergunta />
           </header>
         </div>
