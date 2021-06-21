@@ -8,6 +8,10 @@ const PERGUNTAS_JSON = "perguntas.json"
 // const mediumQuestions = questoes.filter(elem => elem.level === 'medium')
 // const hardQuestions = questoes.filter(elem => elem.level === 'hard')
 
+// Cada joker vale 100 pontos no final do jogo
+// - 300 pontos por resposta errada
+// 100 pontos por pergunta certa
+
 server.use(express.json())
 
 server.get("/perguntasEasy", async (req, res) => {

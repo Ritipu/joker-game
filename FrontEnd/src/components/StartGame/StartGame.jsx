@@ -20,9 +20,8 @@ export default class StartGame extends React.Component {
       return (
         <div className="StartGame-header">
 
-            <video id="bg_intro" autoPlay loop>
+            <video id="bg_intro" loop autoPlay mute>
               <source src="/assets/videos/intro.mov" type="video/mp4"/>
-              <source src="/assets/videos/intro.mov" type="video/ogg"/>
             </video>
 
             <img className="LogoStartGame-logo" src="assets/logos/logo.png" alt="Logo" />
