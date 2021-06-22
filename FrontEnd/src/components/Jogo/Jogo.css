@@ -1,7 +1,12 @@
 .Jogo {
-    background-color: rgb(231, 231, 231);
     height: 100vh;
-    
+}
+
+.videos {
+    height: 100;
+    width: 100;
+    position: fixed;
+    z-index: -1;
 }
 
 .Jogo1 {

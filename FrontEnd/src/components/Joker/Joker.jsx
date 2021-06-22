@@ -23,7 +23,6 @@ export default class Joker extends React.Component {
 					joker: teste
 				}
 			))
-		this.props.onClick() // result da 41
 	}
 
 	render() {
