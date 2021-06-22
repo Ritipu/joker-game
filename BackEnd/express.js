@@ -17,6 +17,37 @@ const hardSet = new Set()
 
 server.use(express.json())
 
+// URI's para Num Perguntas JSON
+server.get('/numeroPergunta', async (req, res) => {
+	try {
+		const conteudo = await fs.readFile(JOGO)
+
+		const conteudoLegivel = JSON.parse(conteudo.toString())
+
+
+		res.status(200).json(conteudoLegivel.jogoTemplate.perguntaNumero)
+	} catch (err) {
+		res.status(500).send("Erro")
+	}
+})
+
+server.put('/numeroPergunta', async (req, res) => {
+	try {
+
+		const conteudo = await fs.readFile(JOGO)
+
+		const conteudoLegivel = JSON.parse(conteudo.toString())
+
+		conteudoLegivel.jogoTemplate.perguntaNumero += 1
+
+		await fs.writeFile(JOGO, JSON.stringify(conteudoLegivel, null, 2))
+
+		res.sendStatus(201)
+	} catch (err) {
+		res.status(500).send("Erro")
+	}
+})
+
 // URI's para Perguntas
 server.get("/perguntasEasy", async (req, res) => {
 	try {
@@ -25,7 +56,7 @@ server.get("/perguntasEasy", async (req, res) => {
 		const questoes = conteudoLegivel.questions
 
 		const easyQuestions = questoes.filter(elem => elem.level === 'easy')
-		console.log(easyQuestions.length)
+
 		// get different indexes for questions
 		const size = easySet.size
 		while (easySet.size === size) {
@@ -56,7 +87,7 @@ server.get("/perguntasMedium", async (req, res) => {
 		const questoes = conteudoLegivel.questions
 
 		const mediumQuestions = questoes.filter(elem => elem.level === 'medium')
-		console.log(mediumQuestions.length)
+
 		// get different indexes for questions
 		const size = mediumSet.size
 		while (mediumSet.size === size) {
@@ -87,7 +118,7 @@ server.get("/perguntasHard", async (req, res) => {
 		const questoes = conteudoLegivel.questions
 
 		const hardQuestions = questoes.filter(elem => elem.level === 'hard')
-		console.log(hardQuestions.length)
+
 		// get different indexes for questions
 		const size = hardSet.size
 		while (hardSet.size === size) {

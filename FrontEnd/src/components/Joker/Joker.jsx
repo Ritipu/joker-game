@@ -23,30 +23,31 @@ export default class Joker extends React.Component {
 					joker: teste
 				}
 			))
-			this.props.onClick() // result da 41
+		this.props.onClick() // result da 41
 	}
 
 	render() {
 		return (
 			<div className="joker">
-					{
-						this.state.joker.map((joker, i) => (
-							<button key={i} onClick={async (valor) => {
-								try {
-									const res = await fetch("/joker", {
-										method: 'DELETE',
-										headers: {
-											"Content-Type": "application/json"
-										}
-									})
-								} catch (err) {
-									console.log(err);
-								} 
-								this.arrayPop()}}>
-								{joker}
-							</button>
-						))
-					}
+				{
+					this.state.joker.map((joker, i) => (
+						<button key={i} onClick={async (valor) => {
+							try {
+								const res = await fetch("/joker", {
+									method: 'DELETE',
+									headers: {
+										"Content-Type": "application/json"
+									}
+								})
+							} catch (err) {
+								console.log(err);
+							}
+							this.arrayPop()
+						}}>
+							{joker}
+						</button>
+					))
+				}
 			</div>
 		)
 	}
