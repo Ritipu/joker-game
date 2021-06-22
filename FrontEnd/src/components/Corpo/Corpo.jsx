@@ -28,11 +28,11 @@ export default class Corpo extends React.Component {
 		fetch('/numeroPergunta')
 			.then(response => response.json())
 			.then(response =>
-				response <= 10 ? this.getPerguntaEasy() : 
-				response > 10 && response <= 20 ? this.getPerguntaMedium() : 
-				response > 20 && response <= 27 ? this.getPerguntaHard() : undefined)
+				response <= 10 ? this.getPerguntaEasy() :
+					response > 10 && response <= 20 ? this.getPerguntaMedium() :
+						response > 20 && response <= 27 ? this.getPerguntaHard() : undefined)
 	}
-			
+
 	getPerguntaEasy() {
 		fetch("/perguntasEasy")
 			.then(response => response.json())
@@ -89,56 +89,60 @@ export default class Corpo extends React.Component {
 				<br />
 
 				<h1>{this.state.pergunta}</h1>
-				<br/>
+				<br />
 
 				<button onClick={async (valor) => {
-								try {
-									const res = await fetch("/numeroPergunta", {
-										method: 'PUT',
-										headers: {
-											"Content-Type": "application/json"
-										}
-									})
-								} catch (err) {
-									console.log(err);
-								} 
-								this.getDificuldadePergunta()}}>A: {this.state.resposta_A.text}</button>
+					try {
+						const res = await fetch("/numeroPergunta", {
+							method: 'PUT',
+							headers: {
+								"Content-Type": "application/json"
+							}
+						})
+					} catch (err) {
+						console.log(err);
+					}
+					this.getDificuldadePergunta()
+				}}>A: {this.state.resposta_A.text}</button>
 				<button onClick={async (valor) => {
-								try {
-									const res = await fetch("/numeroPergunta", {
-										method: 'PUT',
-										headers: {
-											"Content-Type": "application/json"
-										}
-									})
-								} catch (err) {
-									console.log(err);
-								} 
-								this.getDificuldadePergunta()}}>B: {this.state.resposta_B.text}</button>
+					try {
+						const res = await fetch("/numeroPergunta", {
+							method: 'PUT',
+							headers: {
+								"Content-Type": "application/json"
+							}
+						})
+					} catch (err) {
+						console.log(err);
+					}
+					this.getDificuldadePergunta()
+				}}>B: {this.state.resposta_B.text}</button>
 				<button onClick={async (valor) => {
-								try {
-									const res = await fetch("/numeroPergunta", {
-										method: 'PUT',
-										headers: {
-											"Content-Type": "application/json"
-										}
-									})
-								} catch (err) {
-									console.log(err);
-								} 
-								this.getDificuldadePergunta()}}>C: {this.state.resposta_C.text}</button>
+					try {
+						const res = await fetch("/numeroPergunta", {
+							method: 'PUT',
+							headers: {
+								"Content-Type": "application/json"
+							}
+						})
+					} catch (err) {
+						console.log(err);
+					}
+					this.getDificuldadePergunta()
+				}}>C: {this.state.resposta_C.text}</button>
 				<button onClick={async (valor) => {
-								try {
-									const res = await fetch("/numeroPergunta", {
-										method: 'PUT',
-										headers: {
-											"Content-Type": "application/json"
-										}
-									})
-								} catch (err) {
-									console.log(err);
-								} 
-								this.getDificuldadePergunta()}}>D: {this.state.resposta_D.text}</button>
+					try {
+						const res = await fetch("/numeroPergunta", {
+							method: 'PUT',
+							headers: {
+								"Content-Type": "application/json"
+							}
+						})
+					} catch (err) {
+						console.log(err);
+					}
+					this.getDificuldadePergunta()
+				}}>D: {this.state.resposta_D.text}</button>
 
 			</div>
 		)
