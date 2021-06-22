@@ -2,7 +2,7 @@ import React from 'react';
 import './Pontuacao.css';
 
 
-export default class Pontuacao1 extends React.Component {
+export default class PontuacaoP1 extends React.Component {
     constructor(props) {
         super(props);
 
@@ -12,10 +12,10 @@ export default class Pontuacao1 extends React.Component {
     }
 
     componentDidMount() {
-        this.arrayPop()
+        this.pontuacao()
     }
 
-    arrayPop() {
+    pontuacao() {
         fetch("/pontos1")
             .then(res => res.json())
             .then(teste => this.setState(
@@ -23,15 +23,12 @@ export default class Pontuacao1 extends React.Component {
                     pontos1: teste
                 }
             ))
-        this.props.onClick()
     }
 
     render() {
 		return (
 			<div className="pontos1">
-				{
-					this.state.pontos1
-				}
+				<h4>PontuaçãoP1: {this.state.pontos1}</h4>
 			</div>
 		)
 	}

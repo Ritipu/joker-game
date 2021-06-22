@@ -3,6 +3,8 @@ import './StartGame.css';
 import Corpo from '../Corpo/Corpo'
 import Joker from '../Joker/Joker'
 import Timer from '../Timer/Timer'
+import PontuacaoP1 from '../Pontuacao/Pontuacao1'
+import PontuacaoP2 from '../Pontuacao/Pontuacao2'
 
 export default class StartGame extends React.Component {
   constructor(props) {
@@ -39,11 +41,13 @@ export default class StartGame extends React.Component {
     } else {
       return (
         <div className="StartGame-header">
+            <PontuacaoP1 />
+            <PontuacaoP2 />
             <Timer />
             <Joker onClick={() => console.log(this.subtraiRespostaErrada("a"))}/>
             <Corpo />
-            <video class="videos" loop autoPlay mute>
-              <source src="/assets/videos/perguntasFaceis.mp4" type="video/mp4"/>
+            <video className="videos" loop autoPlay mute>
+              <source src="/assets/videos/perguntasMedias.mp4" type="video/mp4"/>
             </video>
         </div>
       )

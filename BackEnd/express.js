@@ -174,4 +174,30 @@ server.delete('/joker', async (req, res) => {
 	}
 })
 
+server.get('/pontos1', async (req, res) => {
+	try {
+		const conteudo = await fs.readFile(JOGO)
+
+		const conteudoLegivel = JSON.parse(conteudo.toString())
+
+
+		res.status(200).json(conteudoLegivel.jogoTemplate.pontuacaoP1)
+	} catch (err) {
+		res.status(500).send("Erro")
+	}
+})
+
+server.get('/pontos2', async (req, res) => {
+	try {
+		const conteudo = await fs.readFile(JOGO)
+
+		const conteudoLegivel = JSON.parse(conteudo.toString())
+
+
+		res.status(200).json(conteudoLegivel.jogoTemplate.pontuacaoP2)
+	} catch (err) {
+		res.status(500).send("Erro")
+	}
+})
+
 server.listen(port, () => console.log(`Ready on ${port}`))
