@@ -1,5 +1,5 @@
 import React from 'react';
-import './Pontuacao.css';
+import './Pontuacao1.css';
 
 
 export default class PontuacaoP1 extends React.Component {

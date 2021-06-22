@@ -3,6 +3,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .videos {
@@ -12,7 +13,7 @@
   z-index: -1;
 }
 
-.StartGame-header {
+.StartGame {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,9 +21,9 @@
   height: 100vh;
 }
 
-.LogoStartGame-logo {
-  width: 600px;
-  height: 300px;
+.StartGame-logo {
+  width: 700px;
+  height: 200px;
   z-index: 1;
   margin-bottom: 200px;
 }
@@ -38,19 +39,20 @@
 
 
 
-.StartGame-header p {
-  font-size: 58px;
+.StartGame p {
+  font-size: 48px;
   padding: 0;
   margin-top: 20px;
   margin-bottom: 20px;
   color: white;
   font-weight: bold;
-  font-family: monospace;
+  font-family: 'Press Start 2P', cursive;
   z-index: 1;
 }
 
 .StartGame-input {
-  width: 300px;
+  font-family: 'Press Start 2P', cursive;
+  width: 360px;
   height: 30px;
   font-size: 20px;
   margin-top: 20px;
