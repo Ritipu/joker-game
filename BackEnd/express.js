@@ -70,7 +70,7 @@ server.get("/perguntasEasy", async (req, res) => {
 				easySet.add(indiceQuestionsEasy)
 			}
 		}
-
+		console.log(easySet)
 		const array = Array.from(easySet) // convert set to array
 		const lastIndex = array.slice(-1)[0] // get last index of the array
 
@@ -101,9 +101,10 @@ server.get("/perguntasMedium", async (req, res) => {
 				mediumSet.add(indiceQuestionsMedium)
 			}
 		}
-
+		console.log(mediumSet)
 		const array = Array.from(mediumSet) // convert set to array
 		const lastIndex = array.slice(-1)[0] // get last index of the array
+		
 
 		res.status(200).json(mediumQuestions[lastIndex])
 	} catch (err) {
@@ -132,9 +133,10 @@ server.get("/perguntasHard", async (req, res) => {
 				hardSet.add(indiceQuestionsHard)
 			}
 		}
-
+		console.log(hardSet)
 		const array = Array.from(hardSet) // convert set to array
 		const lastIndex = array.slice(-1)[0] // get last index of the array
+	
 
 		res.status(200).json(hardQuestions[lastIndex])
 	} catch (err) {
