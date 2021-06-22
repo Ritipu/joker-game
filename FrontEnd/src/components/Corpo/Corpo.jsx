@@ -18,7 +18,6 @@ export default class Corpo extends React.Component {
 	componentDidMount() {
 		this.getDificuldadePergunta();
 	}
-
 	getDificuldadePergunta() {
 		// store na perguntaCurrente: "1/25"
 		fetch("/numeroPergunta")
