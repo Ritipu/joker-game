@@ -7,8 +7,6 @@ export default class StartGame extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      pergunta: "",
-
       gameStart: false
     }
     this.jogo = this.jogo.bind(this);
@@ -17,6 +15,10 @@ export default class StartGame extends React.Component {
   jogo() {
     this.setState({ gameStart: true });
   }
+
+	subtraiRespostaErrada(resposta) {
+		return resposta + "b"
+	}
 
   render() {
     if (this.state.gameStart === false) {
@@ -30,20 +32,17 @@ export default class StartGame extends React.Component {
             <img className="LogoStartGame-logo" src="assets/logos/logo.png" alt="Logo" />
             <p>QUESTIONS</p>
             <input type="text" className="StartGame-input" placeholder="Who's that player?"></input>
-            <button className="StartGame-button" onClick={this.jogo}>  <img src="/assets/imagens/pokeball.png" alt="Background" /> </button>
+            <button className="StartGame-button" onClick={this.jogo}><img src="/assets/imagens/pokeball.png" alt="Background" /></button>
         </div>
       )
     } else {
       return (
         <div className="StartGame-header">
-            <Joker onClick={() => console.log("t")}/>
-            <Corpo pergunta={this.pergunta}/>
-            {console.log(this.state.pergunta)}
+            <Joker onClick={() => console.log(this.subtraiRespostaErrada("a"))}/>
+            <Corpo />
             <video class="videos" loop autoPlay mute>
               <source src="/assets/videos/perguntasFaceis.mp4" type="video/mp4"/>
             </video>
-
-
         </div>
       )
     }
