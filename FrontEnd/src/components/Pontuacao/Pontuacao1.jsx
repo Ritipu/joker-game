@@ -2,14 +2,37 @@ import React from 'react';
 import './Pontuacao1.css';
 
 
-function Pontuacao1() {
+export default class Pontuacao1 extends React.Component {
+    constructor(props) {
+        super(props);
 
-    return (
-        <div className="player1">
-            
-        </div>
-    )
+        this.state = {
+            pontos1: 0
+        }
+    }
+
+    componentDidMount() {
+        this.arrayPop()
+    }
+
+    arrayPop() {
+        fetch("/pontos1")
+            .then(res => res.json())
+            .then(teste => this.setState(
+                {
+                    pontos1: teste
+                }
+            ))
+        this.props.onClick()
+    }
+
+    render() {
+		return (
+			<div className="pontos1">
+				{
+					this.state.pontos1
+				}
+			</div>
+		)
+	}
 }
-
-
-export default Pontuacao1;
