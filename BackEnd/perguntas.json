@@ -87,7 +87,7 @@
         {
             "level": "easy",
             "number": 8,
-            "question": "Que Pokemon transforma-se numa Pokedex?",
+            "question": "Que Pokemon se transforma numa Pokedex?",
             "options": [
                 {"key": "a", "text": "Gengar"},
                 {"key": "b", "text": "Rotom"},
