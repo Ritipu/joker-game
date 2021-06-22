@@ -1,6 +1,5 @@
 import './StartGame.css';
-import Corpo from '../Corpo/Corpo'
-import Joker from '../Joker/Joker'
+import Jogo from '../Jogo/Jogo'
 import React from 'react';
 
 export default class StartGame extends React.Component {
@@ -19,13 +18,12 @@ export default class StartGame extends React.Component {
   render() {
     if (this.state.gameStart === false) {
       return (
-        <div className="StartGame-header">
-
+        <div className="StartGame">
             <video class="videos" loop autoPlay mute>
               <source src="/assets/videos/intro.mp4" type="video/mp4"/>
             </video>
 
-            <img className="LogoStartGame-logo" src="assets/logos/logo.png" alt="Logo" />
+            <img className="StartGame-logo" src="assets/logos/pokejoker.png" alt="Logo" />
             <p>QUESTIONS</p>
             <input type="text" className="StartGame-input" placeholder="Who's that player?"></input>
             <button className="StartGame-button" onClick={this.jogo}>  <img src="/assets/imagens/pokeball.png" alt="Background" /> </button>
@@ -33,15 +31,11 @@ export default class StartGame extends React.Component {
       )
     } else {
       return (
-        <div className="StartGame-header">
-            <Joker/>
-            <Corpo />
-
+        <div className="Jogo">
+            <Jogo />
             <video class="videos" loop autoPlay mute>
               <source src="/assets/videos/perguntasFaceis.mp4" type="video/mp4"/>
             </video>
-
-
         </div>
       )
     }

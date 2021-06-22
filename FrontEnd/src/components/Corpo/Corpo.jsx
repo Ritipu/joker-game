@@ -39,14 +39,24 @@ export default class Corpo extends React.Component {
     render() {
         return (
             <div className="Corpo">
-                <h1>{this.state.pergunta}</h1>
-                <br/>
-
-                <p>A: {this.state.resposta_A.text}</p>
-                <p>B: {this.state.resposta_B.text}</p>
-                <p>C: {this.state.resposta_C.text}</p>
-                <p>D: {this.state.resposta_D.text}</p>
-
+                <div className="Card">
+                    <h2>{this.state.pergunta}</h2>
+                    <div className="box1">
+                        <button>
+                            <img src="assets/imagens/poke_icon.png" />
+                        {this.state.resposta_A.text}
+                        </button><button>
+                            <img src="assets/imagens/poke_icon.png" />
+                        {this.state.resposta_B.text}
+                        </button><button>
+                            <img src="assets/imagens/poke_icon.png" />
+                            {this.state.resposta_C.text}
+                        </button><button>
+                        <img src="assets/imagens/poke_icon.png" />
+                        {this.state.resposta_D.text}
+                        </button>      
+                    </div>
+                </div>    
             </div>
         )
     }

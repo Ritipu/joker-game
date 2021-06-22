@@ -1,4 +1,59 @@
+.Corpo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+}
+
+.Card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    background-color:rgba(255, 255, 255, 0.842);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
+    transition: 0.3s;
+    width: 900px;
+    height: 250px;
+    padding: 30px;
+    margin-left: 50px;
+    margin-top: 210px;
+}
+
+.box1 {
+    display: flex;
+    flex-direction: row;
+}
+
+.box1 button {
+    margin: 10px;
+    background-color: yellow;
+    color: black;
+    font-size: 24px;
+    border: 2px solid black;
+    border-radius: 50px;
+    padding: 10px;
+    display: flex;
+    
+}
+
+.box1 button:hover {
+    background-color: rgb(255, 217, 0);
+}
+
+.box1 button img {
+    width: 32px;
+}
+
 .Corpo p {
     font-size: 16px;
     color: black;
+}
+
+.btnA {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }

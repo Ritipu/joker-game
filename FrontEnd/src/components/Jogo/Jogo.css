@@ -1,0 +1,53 @@
+.Jogo {
+    background-color: rgb(231, 231, 231);
+    height: 100vh;
+    
+}
+
+.Jogo1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.Pontos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    height: 30%;
+}
+
+.ptPlayer2 {
+    background-color:rgba(255, 255, 255, 0.842);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
+    transition: 0.3s;
+    width: 150px;
+    height: 100px;
+    display:flex;
+    align-self: center;
+}
+
+.ptPlayer1 {
+    background-color:rgba(255, 255, 255, 0.842);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
+    transition: 0.3s;
+    width: 150px;
+    height: 100px;
+    display:flex;
+    align-self: center;
+}
+
+.Logo-top {
+    height: 200px;
+    display: flex;
+    align-self: center;
+}
+
+.Oak {
+    height: 450px;
+    display: flex;
+    align-self: flex-end
+}
