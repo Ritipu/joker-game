@@ -37,7 +37,13 @@
   z-index: 1;
 }
 
+.StartGame-button:hover {
+transform: scale(1.1);
+}
 
+.StartGame-button img:hover {
+transform: scale(1.1);
+}
 
 .StartGame p {
   font-size: 48px;
