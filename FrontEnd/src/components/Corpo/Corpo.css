@@ -10,7 +10,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-content: center;
+    align-content: space-between;
     background-color:rgba(255, 255, 255, 0.842);
     border-radius: 10px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
@@ -36,15 +36,24 @@
     border-radius: 50px;
     padding: 10px;
     display: flex;
-    
+    text-align: center;
+    align-content: center;
+    display: inline;
+    flex: 1;
 }
 
 .box1 button:hover {
     background-color: rgb(255, 217, 0);
+    transform: scale(1.1);
+    text-align: center;
+    display: inline;
 }
 
 .box1 button img {
     width: 32px;
+    transform: scale(1.1);
+    text-align: center;
+    display: inline;
 }
 
 .Corpo p {
