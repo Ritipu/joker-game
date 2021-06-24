@@ -16,7 +16,7 @@ export default class PontuacaoP2 extends React.Component {
     }
 
     pontuacao() {
-        fetch("/pontos2")
+        fetch("/pontosP2")
             .then(res => res.json())
             .then(teste => this.setState(
                 {

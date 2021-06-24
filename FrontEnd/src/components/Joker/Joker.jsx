@@ -7,7 +7,7 @@ export default class Joker extends React.Component {
 		super(props);
 
 		this.state = {
-			joker: [1, 1, 1, 1, 1, 1, 1]
+			joker: []
 		}
 	}
 
@@ -18,9 +18,9 @@ export default class Joker extends React.Component {
 	arrayPop() {
 		fetch("/joker")
 			.then(res => res.json())
-			.then(teste => this.setState(
+			.then(arrayJoker => this.setState(
 				{
-					joker: teste
+					joker: arrayJoker
 				}
 			))
 	}

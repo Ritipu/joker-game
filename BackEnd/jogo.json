@@ -1,9 +1,12 @@
 {
   "jogoTemplate": {
-    "perguntaNumero": 1,
-    "pontuacaoP1": 600,
-    "pontuacaoP2": 300,
+    "perguntaNumero": 28,
+    "pontuacaoP1": 26000,
+    "pontuacaoP2": 0,
     "jokersP1": [
+      1,
+      1,
+      1,
       1,
       1,
       1,

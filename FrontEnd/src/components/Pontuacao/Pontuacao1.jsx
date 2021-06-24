@@ -12,11 +12,11 @@ export default class PontuacaoP1 extends React.Component {
     }
 
     componentDidMount() {
-        this.pontuacao()
+        setInterval(() => this.pontuacao(), 200)
     }
 
     pontuacao() {
-        fetch("/pontos1")
+        fetch("/pontosP1")
             .then(res => res.json())
             .then(teste => this.setState(
                 {
