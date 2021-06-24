@@ -109,9 +109,12 @@ server.post('/numeroPergunta', async (req, res) => {
 		const conteudo = await fs.readFile(JOGO)
 
 		const conteudoLegivel = JSON.parse(conteudo.toString())
-
+		
 		conteudoLegivel.jogoTemplate.perguntaNumero += 1
 
+		if (conteudoLegivel.jogoTemplate.perguntaNumero === 28) {
+			conteudoLegivel.jogoTemplate.perguntaNumero = 1
+		}
 		await fs.writeFile(JOGO, JSON.stringify(conteudoLegivel, null, 2))
 
 		res.sendStatus(201)
@@ -225,11 +228,11 @@ server.delete('/menosPontosP1', async (req, res) => {
 
 		const conteudoLegivel = JSON.parse(conteudo.toString())
 
-		if (conteudoLegivel.jogoTemplate.pontuacaoP1 > 300) {
+		if (conteudoLegivel.jogoTemplate.pontuacaoP1 > 0) {
 			conteudoLegivel.jogoTemplate.pontuacaoP1 -= 300
 		}
 
-		if (conteudoLegivel.jogoTemplate.pontuacaoP1 >= 0 && conteudoLegivel.jogoTemplate.pontuacaoP1 < 300) {
+		if (conteudoLegivel.jogoTemplate.pontuacaoP1 <= 0) {
 			conteudoLegivel.jogoTemplate.pontuacaoP1 = 0
 		}
 
