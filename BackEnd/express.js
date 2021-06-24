@@ -12,49 +12,9 @@ const mediumSet = new Set();
 const hardSet = new Set();
 
 let pergunta = undefined;
+let timerControl = undefined;
 
 // funcoes para gerador de perguntas 
-function getIndicePerguntasEasy() {
-	while (easySet.size !== 10) {
-		const indiceQuestionsEasy = Math.floor(Math.random() * (10 - 0))
-		if (!easySet.has(indiceQuestionsEasy)) {
-			easySet.add(indiceQuestionsEasy)
-		}
-	}
-
-	const arrayEasyQuestions = Array.from(easySet)
-	console.log(`Perguntas Fáceis: [${arrayEasyQuestions}]`)
-
-	return arrayEasyQuestions
-}
-
-function getIndicePerguntasMedias() {
-	while (mediumSet.size !== 10) {
-		const indiceQuestionsMedium = Math.floor(Math.random() * (10 - 0))
-		if (!mediumSet.has(indiceQuestionsMedium)) {
-			mediumSet.add(indiceQuestionsMedium)
-		}
-	}
-
-	const arrayMediumQuestions = Array.from(mediumSet)
-	console.log(`Perguntas Médias: [${arrayMediumQuestions}]`)
-
-	return arrayMediumQuestions
-}
-
-function getIndicePerguntasDificeis() {
-	while (hardSet.size !== 7) {
-		const indiceQuestionsHard = Math.floor(Math.random() * (7 - 0))
-		if (!hardSet.has(indiceQuestionsHard)) {
-			hardSet.add(indiceQuestionsHard)
-		}
-	}
-
-	const arrayHardQuestions = Array.from(hardSet)
-	console.log(`Perguntas Dificeis: [${arrayHardQuestions}] \n`)
-
-	return arrayHardQuestions
-}
 
 async function getPerguntaFacil() {
 	try {
@@ -98,6 +58,48 @@ async function getPerguntaDificil() {
 	}
 }
 
+function getIndicePerguntasEasy() {
+	while (easySet.size !== 10) {
+		const indiceQuestionsEasy = Math.floor(Math.random() * (10 - 0))
+		if (!easySet.has(indiceQuestionsEasy)) {
+			easySet.add(indiceQuestionsEasy)
+		}
+	}
+
+	const arrayEasyQuestions = Array.from(easySet)
+	console.log(`Perguntas Fáceis: [${arrayEasyQuestions}]`)
+
+	return arrayEasyQuestions
+}
+
+function getIndicePerguntasMedias() {
+	while (mediumSet.size !== 10) {
+		const indiceQuestionsMedium = Math.floor(Math.random() * (10 - 0))
+		if (!mediumSet.has(indiceQuestionsMedium)) {
+			mediumSet.add(indiceQuestionsMedium)
+		}
+	}
+
+	const arrayMediumQuestions = Array.from(mediumSet)
+	console.log(`Perguntas Médias: [${arrayMediumQuestions}]`)
+
+	return arrayMediumQuestions
+}
+
+function getIndicePerguntasDificeis() {
+	while (hardSet.size !== 7) {
+		const indiceQuestionsHard = Math.floor(Math.random() * (7 - 0))
+		if (!hardSet.has(indiceQuestionsHard)) {
+			hardSet.add(indiceQuestionsHard)
+		}
+	}
+
+	const arrayHardQuestions = Array.from(hardSet)
+	console.log(`Perguntas Dificeis: [${arrayHardQuestions}] \n`)
+
+	return arrayHardQuestions
+}
+
 
 server.use(express.json());
 
@@ -139,23 +141,27 @@ server.get("/perguntas", async (req, res) => {
 		const numPergunta = dataNumPerguntaLegivel.jogoTemplate.perguntaNumero
 
 		if (numPergunta <= 10) {
+			timerControl = 30;
 			let indice = easyIndices[numPergunta - 1]
 			pergunta = easyQuestionsFilter[indice]
 		}
 
 		if (numPergunta > 10 && numPergunta <= 20) {
+			timerControl = 40;
 			let indice = mediumIndices[numPergunta - 11]
 			pergunta = mediumQuestionsFilter[indice]
 		}
 
 		if (numPergunta > 20 && numPergunta <= 27) {
+			timerControl = 50;
 			let indice = hardIndices[numPergunta - 21]
 			pergunta = hardQuestionsFilter[indice]
 		}
 
 		res.status(200).json({
 			...pergunta,
-			numPergunta
+			numPergunta,
+			timerControl
 		})
 	} catch (err) {
 		res.status(500).send("Erro")

@@ -1,7 +1,7 @@
 {
   "jogoTemplate": {
-    "perguntaNumero": 13,
-    "pontuacaoP1": 0,
+    "perguntaNumero": 1,
+    "pontuacaoP1": 100,
     "pontuacaoP2": 0,
     "jokersP1": [
       1,
@@ -23,4 +23,4 @@
     ],
     "vencedor": ""
   }
-}
+} 

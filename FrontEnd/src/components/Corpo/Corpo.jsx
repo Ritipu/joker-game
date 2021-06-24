@@ -11,11 +11,14 @@ export default class Corpo extends React.Component {
 			resposta_C: { key: "", value: "" },
 			resposta_D: { key: "", value: "" },
 			resposta: "",
-			perguntaCurrente: ""
+			perguntaCurrente: "",
+			timer: 0,
+			timerControl: 0
 		}
 	}
 
 	componentDidMount() {
+		setInterval(() => this.time(), 1000);
 		this.getPergunta();
 	}
 
@@ -30,7 +33,9 @@ export default class Corpo extends React.Component {
 					resposta_C: questions.options[2],
 					resposta_D: questions.options[3],
 					resposta: questions.answer,
-					perguntaCurrente: `${questions.numPergunta}/27`
+					perguntaCurrente: `${questions.numPergunta}/27`,
+					timerControl: questions.numPergunta,
+					timer: questions.timerControl
 				}))
 	}
 
@@ -74,9 +79,35 @@ export default class Corpo extends React.Component {
 		}
 	}
 
+    time() {
+
+		if (this.state.timer - 1 === 0) {
+			if (this.state.timerControl > 10 && this.state.timerControl < 20) {
+				fetch("/numeroPergunta", { method: 'POST' })
+				this.getPergunta()
+				this.setState({ timer: 40 })
+			} else if (this.state.timerControl > 20) {
+				fetch("/numeroPergunta", { method: 'POST' })
+				this.getPergunta()
+				this.setState({ timer : 50 })
+			} else {
+				fetch("/numeroPergunta", { method: 'POST' })
+				this.getPergunta()
+				this.setState({ timer : 30 })
+			}
+
+		}
+
+        this.setState((state) => { 
+            return {timer: state.timer - 1}
+        })
+    }
+
 	render() {
 		return (
 			<div className="Card">
+				<h2>{this.state.timer}</h2>
+				<br/>
 				<h2>{this.state.perguntaCurrente}</h2>
 				<br />
 
