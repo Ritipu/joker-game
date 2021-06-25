@@ -9,17 +9,23 @@ export default class StartGame extends React.Component {
       gameStart: false,
       nome: ''
     }
+    
     this.jogo = this.jogo.bind(this);
     this.formChange = this.formChange.bind(this)
   }
 
+  sendName() {
+    const nome = { nome: this.state.nome }
+    fetch("/nome", {
+      method: 'POST', body: JSON.stringify(nome) , headers: {"content-type": 'application/json'}
+    })
+  }
+  
   jogo() {
     this.setState({ gameStart: true });
+    this.sendName();
   }
 
-  subtraiRespostaErrada(resposta) {
-    return resposta + "b"
-  }
 
   formChange(form) {
     this.setState({ nome: form.target.value });

@@ -1,6 +1,6 @@
 {
   "jogoTemplate": {
-    "perguntaNumero": 6,
+    "perguntaNumero": 5,
     "pontuacaoP1": 0,
     "pontuacaoP2": 0,
     "jokersP1": [
@@ -21,6 +21,7 @@
       1,
       1
     ],
-    "vencedor": ""
+    "vencedor": "",
+    "nomeJogador": "Pikachu"
   }
 }

@@ -103,8 +103,26 @@ function getIndicePerguntasDificeis() {
 
 server.use(express.json());
 
-// URI's para Num Perguntas JSON
+// URI para gravar Nome
+server.post('/nome', async (req, res) => {
+	try {
 
+		const conteudo = await fs.readFile(JOGO)
+		const conteudoLegivel = JSON.parse(conteudo.toString())
+		
+		console.log(`Player Name: ${req.body.nome}`)
+		conteudoLegivel.jogoTemplate.nomeJogador = req.body.nome
+
+
+		await fs.writeFile(JOGO, JSON.stringify(conteudoLegivel, null, 2))
+
+		res.sendStatus(201)
+	} catch (err) {
+		res.status(500).send("Erro")
+	}
+})
+
+// URI's para Num Perguntas JSON
 server.post('/numeroPergunta', async (req, res) => {
 	try {
 
