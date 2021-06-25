@@ -1,0 +1,24 @@
+{
+  "level": "easy",
+  "number": 2,
+  "question": "Os primeiros jogos de Pokemon foram quais?",
+  "options": [
+    {
+      "key": "a",
+      "text": "Red e Blue"
+    },
+    {
+      "key": "b",
+      "text": "Yellow e Red"
+    },
+    {
+      "key": "c",
+      "text": "Green e Blue"
+    },
+    {
+      "key": "d",
+      "text": "Red e Green"
+    }
+  ],
+  "answer": "d"
+}

@@ -6,6 +6,7 @@ const port = 3001;
 
 const PERGUNTAS_JSON = "perguntas.json";
 const JOGO = "jogo.json";
+const PERGUNTA_ATUAL = "pergunta_atual.json"
 
 const easySet = new Set();
 const mediumSet = new Set();
@@ -100,6 +101,31 @@ function getIndicePerguntasDificeis() {
 	return arrayHardQuestions
 }
 
+//funcao gerador Joker
+
+async function getIndiceJoker() {
+	try {
+		const pergunta = await fs.readFile(PERGUNTA_ATUAL)
+		const perguntaLegivel = JSON.parse(pergunta.toString())
+
+		const jokerKeys = []
+		for (let i = 0; i < perguntaLegivel.options.length; i++) {
+			if (perguntaLegivel.options[i].key !== perguntaLegivel.answer) {
+				jokerKeys.push(perguntaLegivel.options[i].key)
+			}
+		}
+
+		const indice = Math.floor(Math.random() * (jokerKeys.length - 0))
+
+		const objKey = { jokerKey: jokerKeys[indice] }
+
+		return objKey
+	} catch (err) {
+		console.log(err)
+	}
+
+}
+
 
 server.use(express.json());
 
@@ -109,7 +135,7 @@ server.post('/nome', async (req, res) => {
 
 		const conteudo = await fs.readFile(JOGO)
 		const conteudoLegivel = JSON.parse(conteudo.toString())
-		
+
 		console.log(`Player Name: ${req.body.nome}`)
 		conteudoLegivel.jogoTemplate.nomeJogador = req.body.nome
 
@@ -129,7 +155,7 @@ server.post('/numeroPergunta', async (req, res) => {
 		const conteudo = await fs.readFile(JOGO)
 
 		const conteudoLegivel = JSON.parse(conteudo.toString())
-		
+
 		conteudoLegivel.jogoTemplate.perguntaNumero += 1
 
 		if (conteudoLegivel.jogoTemplate.perguntaNumero === 28) {
@@ -176,6 +202,8 @@ server.get("/perguntas", async (req, res) => {
 			pergunta = hardQuestionsFilter[indice]
 		}
 
+		await fs.writeFile(PERGUNTA_ATUAL, JSON.stringify(pergunta, null, 2))
+
 		res.status(200).json({
 			...pergunta,
 			numPergunta,
@@ -193,7 +221,6 @@ server.get("/joker", async (req, res) => {
 
 		const conteudoLegivel = JSON.parse(conteudo.toString())
 
-
 		res.status(200).json(conteudoLegivel.jogoTemplate.jokersP1)
 	} catch (err) {
 		res.status(500).send("Erro")
@@ -203,14 +230,13 @@ server.get("/joker", async (req, res) => {
 server.delete('/joker', async (req, res) => {
 	try {
 		const conteudo = await fs.readFile(JOGO)
-
 		const conteudoLegivel = JSON.parse(conteudo.toString())
-
 		conteudoLegivel.jogoTemplate.jokersP1.pop()
-
 		await fs.writeFile(JOGO, JSON.stringify(conteudoLegivel, null, 2))
 
-		res.sendStatus(201)
+		const key = await getIndiceJoker()
+		console.log(key)
+		res.status(200).json(key)
 	} catch (err) {
 		res.status(500).send("Erro")
 	}

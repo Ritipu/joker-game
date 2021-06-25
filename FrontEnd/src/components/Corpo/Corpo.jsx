@@ -13,7 +13,7 @@ export default class Corpo extends React.Component {
 			resposta: "",
 			perguntaCurrente: "",
 			timer: 0,
-			timerControl: 0
+			timerControl: 0,
 		}
 	}
 

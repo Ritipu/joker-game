@@ -8,6 +8,15 @@ import Pontuacao2 from '../Pontuacao/Pontuacao2';
 export default class Jogo extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      jokerKey: ''
+    }
+  }
+  
+  apagarRespostaErradaComJoker() {
+    fetch("/joker", { method: 'DELETE' })
+      .then(response => response.json())
+      .then(response => this.setState({ jokerKey: response }));
   }
 
   render() {
@@ -20,13 +29,13 @@ export default class Jogo extends React.Component {
           <source src="/assets/audio/easyMusic.mp3" type="audio/mp3" />
         </audio>
         <div className="Pontos">
-          <div className="ptPlayer1"><br/><Pontuacao1 nomeJogador={this.props.nomeJogador}/></div>
+          <div className="ptPlayer1"><br /><Pontuacao1 nomeJogador={this.props.nomeJogador} /></div>
           <img className="Logo-top" src="assets/logos/pokejoker.png" alt="Logo do Jogo" />
           {/* <div className="ptPlayer2"><Pontuacao2 /></div> */}
         </div>
         <div className="Jogo1">
-          <div className="joker"><Joker/></div>
-          <div className="jogo"><Corpo /></div>
+          <div className="joker"><Joker getJokerKey={() => this.apagarRespostaErradaComJoker()} /></div>
+          <div className="jogo"><Corpo jokerKey={this.state.jokerKey} /></div>
           <img className="Oak" src="/assets/imagens/oak.png" alt="Professor Carvalho" />
         </div>
       </div>

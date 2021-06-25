@@ -7,8 +7,9 @@ export default class Joker extends React.Component {
 		super(props);
 
 		this.state = {
-			joker: []
+			joker: [],
 		}
+		this.keysENumeroJoker = this.keysENumeroJoker.bind(this)
 	}
 
 	componentDidMount() {
@@ -23,26 +24,20 @@ export default class Joker extends React.Component {
 					joker: arrayJoker
 				}
 			))
+		
 	}
 
+
+	keysENumeroJoker() {
+		this.props.getJokerKey()
+		this.arrayPop()
+	}
 	render() {
 		return (
 			<div className="joker">
 				{
 					this.state.joker.map((joker, i) => (
-						<button key={i} onClick={async (valor) => {
-							try {
-								const res = await fetch("/joker", {
-									method: 'DELETE',
-									headers: {
-										"Content-Type": "application/json"
-									}
-								})
-							} catch (err) {
-								console.log(err);
-							}
-							this.arrayPop()
-						}}>
+						<button key={i} onClick={this.keysENumeroJoker}>
 							{joker}
 						</button>
 					))
