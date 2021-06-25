@@ -28,6 +28,7 @@ export default class PontuacaoP1 extends React.Component {
     render() {
 		return (
 			<div className="pontos1">
+                <h2>{this.props.nomeJogador}</h2>
 				<h4>PontuaçãoP1: {this.state.pontos1}</h4>
 			</div>
 		)

@@ -6,6 +6,9 @@ import Pontuacao1 from '../Pontuacao/Pontuacao1';
 import Pontuacao2 from '../Pontuacao/Pontuacao2';
 
 export default class Jogo extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
   render() {
     return (
@@ -17,7 +20,7 @@ export default class Jogo extends React.Component {
           <source src="/assets/audio/easyMusic.mp3" type="audio/mp3" />
         </audio>
         <div className="Pontos">
-          <div className="ptPlayer1"><Pontuacao1 /></div>
+          <div className="ptPlayer1"><br/><Pontuacao1 nomeJogador={this.props.nomeJogador}/></div>
           <img className="Logo-top" src="assets/logos/pokejoker.png" alt="Logo do Jogo" />
           
           <div className="ptPlayer2"><Pontuacao2 /></div>
