@@ -5,7 +5,6 @@ import Joker from '../Joker/Joker';
 import Pontuacao1 from '../Pontuacao/Pontuacao1';
 import Pontuacao2 from '../Pontuacao/Pontuacao2';
 
-
 export default class Jogo extends React.Component {
 
   render() {
@@ -14,6 +13,9 @@ export default class Jogo extends React.Component {
         <video className="videos" loop autoPlay mute>
           <source src="/assets/videos/perguntasFaceis.mp4" type="video/mp4" />
         </video>
+        <audio class="audio" loop autoPlay>
+          <source src="/assets/audio/easyMusic.mp3" type="audio/mp3" />
+        </audio>
         <div className="Pontos">
           <div className="ptPlayer1"><Pontuacao1 /></div>
           <img className="Logo-top" src="assets/logos/pokejoker.png" alt="Logo do Jogo" />

@@ -11,6 +11,31 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
+
+function onClickHandler(event) {
+  console.log(event)
+  console.log(event.target.tagName)
+  if (event.target.tagName === 'INPUT') {
+    const audioObj = new Audio('/assets/audio/clickButton.wav');
+    audioObj.play();
+  }
+  else if (event.target.tagName === 'IMG') {
+    const audioObj = new Audio('/assets/audio/clickButton.wav');
+    audioObj.play();
+  }
+  else if (event.target.tagName === 'BUTTON') {
+    const audioObj = new Audio('/assets/audio/clickButton.wav');
+    audioObj.play();
+  }
+  else {
+    const audioObj = new Audio('/assets/audio/wrongClick.wav');
+    audioObj.play();
+  }
+  
+}
+
+document.getElementById('root').addEventListener('click', onClickHandler)
+
 // fetch("/")
 //   .then(response => response.text())
 //   .then(text => console.log("GET /api =>", text))
