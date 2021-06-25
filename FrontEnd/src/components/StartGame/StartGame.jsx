@@ -43,6 +43,9 @@ export default class StartGame extends React.Component {
           <video class="videos" loop autoPlay mute>
             <source src="/assets/videos/intro.mp4" type="video/mp4" />
           </video>
+          <audio class="audio" loop autoPlay>
+              <source src="/assets/audio/startMusic.mp3" type="audio/mp3" />
+          </audio>
 
           <img className="StartGame-logo" src="assets/logos/pokejoker.png" alt="Logo" />
           <p>QUESTIONS</p>
