@@ -55,7 +55,7 @@ export default class StartGame extends React.Component {
             <input type="text" className="StartGame-input" placeholder="Who's that player?" required
               value={this.state.nome} onChange={this.formChange} />
             <br />
-            <input type="image" src="/assets/imagens/pokeball.png" alt="Submit" />
+            <input type="image" className="StartGame-button" src="/assets/imagens/pokeball.png" alt="Submit" />
           </form>
 
         </div>

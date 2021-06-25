@@ -19,7 +19,7 @@ function onClickHandler(event) {
     const audioObj = new Audio('/assets/audio/clickButton.wav');
     audioObj.play();
   }
-  else if (event.target.tagName === 'IMG') {
+  else if (event.target.className === 'StartGame-button') {
     const audioObj = new Audio('/assets/audio/clickButton.wav');
     audioObj.play();
   }
