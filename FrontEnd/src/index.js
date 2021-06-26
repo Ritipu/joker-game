@@ -13,8 +13,7 @@ ReactDOM.render(
 
 
 function onClickHandler(event) {
-  console.log(event)
-  console.log(event.target.tagName)
+
   if (event.target.tagName === 'INPUT') {
     const audioObj = new Audio('/assets/audio/clickButton.wav');
     audioObj.play();

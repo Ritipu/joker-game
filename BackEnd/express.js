@@ -102,7 +102,6 @@ function getIndicePerguntasDificeis() {
 }
 
 //funcao gerador Joker
-
 async function getIndiceJoker() {
 	try {
 		const pergunta = await fs.readFile(PERGUNTA_ATUAL)
@@ -308,4 +307,15 @@ server.get('/pontosP2', async (req, res) => {
 	}
 })
 
+//URI para controlo de video
+server.get('/video', async (req, res) => {
+	try {
+		const conteudo = await fs.readFile(JOGO)
+		const conteudoLegivel = JSON.parse(conteudo.toString())
+		
+		res.status(200).json(conteudoLegivel.jogoTemplate.perguntaNumero)
+	} catch (err) {
+		res.status(500).send("Erro")
+	}
+})
 server.listen(port, () => console.log(`Ready on ${port}`))

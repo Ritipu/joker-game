@@ -49,6 +49,10 @@
     display: inline;
 }
 
+.box1 button:disabled {
+    visibility: hidden;
+}
+
 .box1 button img {
     width: 32px;
     transform: scale(1.1);
