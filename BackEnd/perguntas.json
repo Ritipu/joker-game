@@ -19,7 +19,7 @@
             "options": [
                 {"key": "a", "text": "Red e Blue"},
                 {"key": "b", "text": "Yellow e Red"},
-                {"key": "c", "text": "Green e Blue"},
+                {"key": "c", "text": "Blue e Green"},
                 {"key": "d", "text": "Red e Green"}
             ],
             "answer": "d"
