@@ -40,11 +40,11 @@ export default class StartGame extends React.Component {
     if (this.state.gameStart === false) {
       return (
         <div className="StartGame">
-          <video class="videos" loop autoPlay mute>
+          <video className="videos" loop autoPlay mute>
             <source src="/assets/videos/intro.mp4" type="video/mp4" />
           </video>
           
-          <audio class="audio" loop autoPlay>
+          <audio className="audio" loop autoPlay>
               <source src="/assets/audio/startMusic.mp3" type="audio/mp3" />
           </audio>
 
