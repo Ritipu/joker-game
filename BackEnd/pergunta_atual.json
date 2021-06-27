@@ -1,24 +1,24 @@
 {
   "level": "easy",
-  "number": 10,
-  "question": "Na segunda geração dos videojogos de Pokemon, existe um boss final escondido no Mt. Silver, qual o seu nome?",
+  "number": 6,
+  "question": "Qual o nome do chefe da Team Rocket?",
   "options": [
     {
       "key": "a",
-      "text": "Giovanni"
+      "text": "Archie"
     },
     {
       "key": "b",
-      "text": "Red"
-    },
-    {
-      "key": "c",
       "text": "Ash"
     },
     {
+      "key": "c",
+      "text": "Giovanni"
+    },
+    {
       "key": "d",
-      "text": "Blue"
+      "text": "Brock"
     }
   ],
-  "answer": "b"
+  "answer": "c"
 }
