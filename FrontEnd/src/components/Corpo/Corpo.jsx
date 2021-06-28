@@ -29,7 +29,7 @@ export default class Corpo extends React.Component {
 				questions.options[2],
 				questions.options[3]
 				],
-			perguntaCurrente: `${questions.numPergunta}/27`,
+			perguntaCurrente: `${questions.numPergunta}/25`,
 			timerControl: questions.numPergunta,
 			timer: questions.timerControl
 		}))
@@ -107,7 +107,7 @@ export default class Corpo extends React.Component {
 						catch (err) {
 							console.log(err);
 						}
-						this.state.timerControl < 27 ? this.gameController() : this.props.getEndGame()
+						this.state.timerControl < 25 ? this.gameController() : this.props.getEndGame()
 					}}
 					>
 					<img src="/assets/imagens/poke_icon.png" className="pokeBola" alt="pergunta_pokeball"/>{res.text}

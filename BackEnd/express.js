@@ -87,8 +87,8 @@ function getIndicePerguntasMedias() {
 }
 
 function getIndicePerguntasDificeis() {
-	while (hardSet.size !== 7) {
-		const indiceQuestionsHard = Math.floor(Math.random() * (7 - 0))
+	while (hardSet.size !== 5) {
+		const indiceQuestionsHard = Math.floor(Math.random() * (5 - 0))
 		if (!hardSet.has(indiceQuestionsHard)) {
 			hardSet.add(indiceQuestionsHard)
 		}
