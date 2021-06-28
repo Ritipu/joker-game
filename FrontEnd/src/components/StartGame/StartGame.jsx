@@ -26,7 +26,6 @@ export default class StartGame extends React.Component {
     this.sendName();
   }
 
-
   formChange(form) {
     this.setState({ nome: form.target.value });
 
@@ -68,5 +67,4 @@ export default class StartGame extends React.Component {
       )
     }
   }
-
 }
