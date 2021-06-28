@@ -1,9 +1,9 @@
 {
   "jogoTemplate": {
     "id": 1,
-    "nomeJogador": "Jonata",
+    "nomeJogador": "teste",
     "perguntaNumero": 1,
-    "pontuacaoP1": 44600,
+    "pontuacaoP1": 0,
     "pontuacaoP2": 0,
     "jokersP1": [
       1,

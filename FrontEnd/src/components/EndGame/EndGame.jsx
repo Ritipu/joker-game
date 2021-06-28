@@ -1,45 +1,36 @@
 import React from 'react';
 import './EndGame.css';
-import StartGame from '../StartGame/StartGame'
 
 export default class EndGame extends React.Component {
-    constructor(props) {
-        super(props);
 
-        this.state = {
-            pontos: 0
-        }
-    }
+	async componentDidMount() {
+		await this.adicionaJokerPontos();
+		await this.props.pontosCalculo();
+	}
 
-    componentDidMount() {
-        this.adicionaJokerPontos();
-        this.getPontos();
-    }
+	async adicionaJokerPontos() {
+		await fetch("/pontosJoker");
+	}
 
-    adicionaJokerPontos() {
-        fetch("/pontosJoker");
-    }
+	refresh() {
+		window.location.reload()
+	}
 
-    getPontos() {
-        fetch('/pontosScreen')
-        .then(response => response.json())
-        .then(pontos => this.setState({
-            pontos: pontos
-        }))
-    }
-
-    refresh() {
-        window.location.reload()
-    }
-
-    render() {
+render() {
         return (
             
                 <div className="bgEndGame" style={{ backgroundImage: 'url(./assets/imagens/endGame.png' }}>
                     <div className="space"></div>
                     <p className="congrats">Parabéns {this.props.nomeJogador}!</p>
-                    <p className="pontos">Acabaste com: <br /> <br />  {this.state.pontos} pontos</p>
-                    <button onClick={this.refresh}> <img src="./assets/imagens/pokeball.png" /> Restart</button>
+                    <p className="pontos">Acabaste com: <br /> <br />  {this.props.pontosDisplay} pontos</p>
+                    <button onClick={async (valor) => {
+					await fetch("/restartState", {
+						method: 'POST',
+						headers: { "Content-Type": "application/json" }
+					})
+					this.refresh()
+				}
+				}> <img src="./assets/imagens/pokeball.png" /> Restart</button>
                 </div>
         )
     }

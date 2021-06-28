@@ -13,7 +13,7 @@
             "answer": "a"
         },
         {
-            "level": "easy",
+            "level": "medium",
             "number": 2,
             "question": "Os primeiros jogos de Pokemon foram quais?",
             "options": [
@@ -109,7 +109,7 @@
             "answer": "c"
         },
         {
-            "level": "easy",
+            "level": "medium",
             "number": 10,
             "question": "Na segunda geração dos videojogos de Pokemon, existe um boss final escondido no Mt. Silver, qual o seu nome?",
             "options": [
@@ -133,7 +133,7 @@
             "answer": "d"
         },
         {
-            "level": "medium",
+            "level": "easy",
             "number": 12,
             "question": "Em que geração é que foi possível viajar para duas regiões no mesmo jogo?",
             "options": [
@@ -145,7 +145,7 @@
             "answer": "a"
         },
         {
-            "level": "medium",
+            "level": "easy",
             "number": 13,
             "question": "Qual o nome da equipa que tenta roubar o Pikachu?",
             "options": [
@@ -157,7 +157,7 @@
             "answer": "d"
         },
         {
-            "level": "medium",
+            "level": "easy",
             "number": 14,
             "question": "Quantos ginásios tem que se ganhar até se poder ir para a PokeLiga?",
             "options": [
@@ -265,7 +265,7 @@
             "answer": "c"
         },
         {
-            "level": "hard",
+            "level": "medium",
             "number": 23,
             "question": "A funcionalidade dos ovos e todo o sistema de breeding apareceu em que geração?",
             "options": [
@@ -289,7 +289,7 @@
             "answer": "d"
         },
         {
-            "level": "hard",
+            "level": "easy",
             "number": 25,
             "question": "Qual a Pokebola que tem 100% chances de apanhar um Pokemon?",
             "options": [
@@ -312,7 +312,6 @@
             ],
             "answer": "b"
         },
-        
         {
             "level": "hard",
             "number": 27,
@@ -322,6 +321,282 @@
                 {"key": "b", "text": "Staryu"},
                 {"key": "c", "text": "Togepi"},
                 {"key": "d", "text": "Psyduck"}
+            ],
+            "answer": "d"
+        },
+        {
+            "level": "easy",
+            "number": 28,
+            "question": "Qual o primeiro filme live-action de pokemon?",
+            "options": [
+                {"key": "a", "text": "Pokemon: Detective Pikachu"},
+                {"key": "b", "text": "Pokemon: Arceus and the Jewel of Life"},
+                {"key": "c", "text": "Pokemon: Mewtwo Returns"},
+                {"key": "d", "text": "Pokemon: Secret of the Unown"}
+            ],
+            "answer": "a"
+        },
+        {
+            "level": "easy",
+            "number": 29,
+            "question": "Qual o rival de Ash?",
+            "options": [
+                {"key": "a", "text": "Oak"},
+                {"key": "b", "text": "Misty"},
+                {"key": "c", "text": "Brock"},
+                {"key": "d", "text": "Gary"}
+            ],
+            "answer": "d"
+        },
+        {
+            "level": "hard",
+            "number": 30,
+            "question": "Na manga, qual destes líderes de ginásio pertencem à Team Rocket?",
+            "options": [
+                {"key": "a", "text": "Erika"},
+                {"key": "b", "text": "Misty"},
+                {"key": "c", "text": "Brock"},
+                {"key": "d", "text": "Blaine"}
+            ],
+            "answer": "d"
+        },
+        {
+            "level": "medium",
+            "number": 31,
+            "question": "Qual o protagonista que conseguiu o feito mítico de capturar todos os pokemons existentes?",
+            "options": [
+                {"key": "a", "text": "Ash"},
+                {"key": "b", "text": "Oak"},
+                {"key": "c", "text": "Red"},
+                {"key": "d", "text": "Gary"}
+            ],
+            "answer": "c"
+        },
+        {
+            "level": "medium",
+            "number": 32,
+            "question": "Em que jogo foram removidos os HM? (Hidden Machine)",
+            "options": [
+                {"key": "a", "text": "Gold & Silver"},
+                {"key": "b", "text": "Ruby & Sapphire"},
+                {"key": "c", "text": "Sun & Moon"},
+                {"key": "d", "text": "Sword & Shield"}
+            ],
+            "answer": "c"
+        },
+        {
+            "level": "medium",
+            "number": 33,
+            "question": "Em que jogo é que foi apresentada a Battle Frontier?",
+            "options": [
+                {"key": "a", "text": "Yellow"},
+                {"key": "b", "text": "Crystal"},
+                {"key": "c", "text": "Emerald"},
+                {"key": "d", "text": "Platinum"}
+            ],
+            "answer": "c"
+        },
+        {
+            "level": "easy",
+            "number": 34,
+            "question": "Qual o bando de pokemons que o Pikachu ataca, tentando proteger Ash?",
+            "options": [
+                {"key": "a", "text": "Meowth"},
+                {"key": "b", "text": "Spearow"},
+                {"key": "c", "text": "Togepi"},
+                {"key": "d", "text": "Psyduck"}
+            ],
+            "answer": "b"
+        },
+        {
+            "level": "hard",
+            "number": 35,
+            "question": "Qual o primeiro jogo 3D de Pokemon, para a N64?",
+            "options": [
+                {"key": "a", "text": "Pokemon Battle Revolution"},
+                {"key": "b", "text": "Pokemon Snap"},
+                {"key": "c", "text": "Pokemon Stadium"},
+                {"key": "d", "text": "Pokemon XD: Gale of Darkness"}
+            ],
+            "answer": "c"
+        },
+        {
+            "level": "hard",
+            "number": 36,
+            "question": "Qual o novo jogo mobile, de pokemon, inspirado em League of Legends?",
+            "options": [
+                {"key": "a", "text": "Pokemon Masters EX"},
+                {"key": "b", "text": "Pokemon Go"},
+                {"key": "c", "text": "Home"},
+                {"key": "d", "text": "Pokemon Unite"}
+            ],
+            "answer": "d"
+        },
+        {
+            "level": "medium",
+            "number": 37,
+            "question": "Que app permite guardar os nossos Pokemon no telemóvel?",
+            "options": [
+                {"key": "a", "text": "Pokemon Go"},
+                {"key": "b", "text": "Pokemon Slepp"},
+                {"key": "c", "text": "Pokemon Smile"},
+                {"key": "d", "text": "Pokemon Home"}
+            ],
+            "answer": "d"
+        },
+        {
+            "level": "easy",
+            "number": 38,
+            "question": "Em que jogo existia um Pikachu que praticava o surf",
+            "options": [
+                {"key": "a", "text": "Pokemon Red"},
+                {"key": "b", "text": "Pokemon Blue"},
+                {"key": "c", "text": "Pokemon Green"},
+                {"key": "d", "text": "Pokemon Yellow"}
+            ],
+            "answer": "d"
+        },
+        {
+            "level": "easy",
+            "number": 39,
+            "question": "Que objeto acorda o Snorlax?",
+            "options": [
+                {"key": "a", "text": "Poké Flute"},
+                {"key": "b", "text": "Max Revive"},
+                {"key": "c", "text": "Full Restore"},
+                {"key": "d", "text": "PokéBall"}
+            ],
+            "answer": "a"
+        },
+        {
+            "level": "hard",
+            "number": 40,
+            "question": "Qual o Pokemon com o maior base stat do jogo?",
+            "options": [
+                {"key": "a", "text": "Mega Rayquaza"},
+                {"key": "b", "text": "Mega Kyogre"},
+                {"key": "c", "text": "Mega Lopunni"},
+                {"key": "d", "text": "Mega Charizard X"}
+            ],
+            "answer": "a"
+        },
+        {
+            "level": "easy",
+            "number": 41,
+            "question": "Qual o ponto fraco da personagem Brock?",
+            "options": [
+                {"key": "a", "text": "Mulheres"},
+                {"key": "b", "text": "Paisagens bonitas"},
+                {"key": "c", "text": "Comida saborosa"},
+                {"key": "d", "text": "Pokemons de água"}
+            ],
+            "answer": "a"
+        },
+        {
+            "level": "easy",
+            "number": 42,
+            "question": "Qual destes Pokemon não é uma evolução da Eevee?",
+            "options": [
+                {"key": "a", "text": "Lapras"},
+                {"key": "b", "text": "Flareon"},
+                {"key": "c", "text": "Vaporeon"},
+                {"key": "d", "text": "Jolteon"}
+            ],
+            "answer": "a"
+        },
+        {
+            "level": "medium",
+            "number": 43,
+            "question": "Quantos TM existem na primeira geração?",
+            "options": [
+                {"key": "a", "text": "70"},
+                {"key": "b", "text": "50"},
+                {"key": "c", "text": "30"},
+                {"key": "d", "text": "90"}
+            ],
+            "answer": "b"
+        },
+        {
+            "level": "medium",
+            "number": 44,
+            "question": "Quantos HM existem na primeira geração?",
+            "options": [
+                {"key": "a", "text": "5"},
+                {"key": "b", "text": "10"},
+                {"key": "c", "text": "7"},
+                {"key": "d", "text": "4"}
+            ],
+            "answer": "d"
+        },
+        {
+            "level": "easy",
+            "number": 45,
+            "question": "Quantos oponentes tem a PokéLiga?",
+            "options": [
+                {"key": "a", "text": "3"},
+                {"key": "b", "text": "4"},
+                {"key": "c", "text": "5"},
+                {"key": "d", "text": "6"}
+            ],
+            "answer": "c"
+        },
+        {
+            "level": "hard",
+            "number": 46,
+            "question": "Quantas evoluções tem a Eevee?",
+            "options": [
+                {"key": "a", "text": "6"},
+                {"key": "b", "text": "7"},
+                {"key": "c", "text": "8"},
+                {"key": "d", "text": "9"}
+            ],
+            "answer": "c"
+        },
+        {
+            "level": "easy",
+            "number": 47,
+            "question": "O Charmeleon evoluiu para qual Pokemon?",
+            "options": [
+                {"key": "a", "text": "Charizard"},
+                {"key": "b", "text": "Blastoise"},
+                {"key": "c", "text": "Venusaur"},
+                {"key": "d", "text": "Raichu"}
+            ],
+            "answer": "a"
+        },
+        {
+            "level": "hard",
+            "number": 48,
+            "question": "Qual o Pokemon da capa do Pokemon Crystal",
+            "options": [
+                {"key": "a", "text": "Entei"},
+                {"key": "b", "text": "Ho-oh"},
+                {"key": "c", "text": "Lugia"},
+                {"key": "d", "text": "Suicune"}
+            ],
+            "answer": "d"
+        },
+        {
+            "level": "medium",
+            "number": 49,
+            "question": "No Pokemon Crystal, qual o Pokemon que não se consegue apanhar selvagem, só oferecido?",
+            "options": [
+                {"key": "a", "text": "Dratini"},
+                {"key": "b", "text": "Houndour"},
+                {"key": "c", "text": "Corsola"},
+                {"key": "d", "text": "Smeargle"}
+            ],
+            "answer": "a"
+        },
+        {
+            "level": "medium",
+            "number": 50,
+            "question": "No Pokemon Crystal, qual o Pokemon, que exclusivamente, nasce de um ovo?",
+            "options": [
+                {"key": "a", "text": "Mantine"},
+                {"key": "b", "text": "Sneasel"},
+                {"key": "c", "text": "Heracross"},
+                {"key": "d", "text": "Togepi"}
             ],
             "answer": "d"
         }
