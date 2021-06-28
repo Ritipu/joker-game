@@ -34,10 +34,13 @@ export default class EndGame extends React.Component {
 
     render() {
         return (
-            <div>
-                <h1>Parabens {this.props.nomeJogador}! Acabaste com: {this.state.pontos} pontos</h1>
-                <button onClick={this.refresh}>Restart Game</button>
-            </div>
+            
+                <div className="bgEndGame" style={{ backgroundImage: 'url(./assets/imagens/endGame.png' }}>
+                    <div className="space"></div>
+                    <p className="congrats">Parabéns {this.props.nomeJogador}!</p>
+                    <p className="pontos">Acabaste com: <br /> <br />  {this.state.pontos} pontos</p>
+                    <button onClick={this.refresh}> <img src="./assets/imagens/pokeball.png" /> Restart</button>
+                </div>
         )
     }
 }

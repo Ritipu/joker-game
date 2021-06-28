@@ -1,23 +1,23 @@
 {
   "level": "hard",
-  "number": 25,
-  "question": "Qual a Pokebola que tem 100% chances de apanhar um Pokemon?",
+  "number": 22,
+  "question": "Quantos Pokemons é que existem ao todo, até à 8ª geração",
   "options": [
     {
       "key": "a",
-      "text": "Moon Ball"
+      "text": "595"
     },
     {
       "key": "b",
-      "text": "Ultra Ball"
+      "text": "696"
     },
     {
       "key": "c",
-      "text": "Master Ball"
+      "text": "898"
     },
     {
       "key": "d",
-      "text": "Beast Ball"
+      "text": "797"
     }
   ],
   "answer": "c"
