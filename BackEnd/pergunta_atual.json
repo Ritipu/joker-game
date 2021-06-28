@@ -1,24 +1,24 @@
 {
   "level": "hard",
-  "number": 27,
-  "question": "Qual o Pokemon da Misty que causava constantemente problemas para os protagonistas?",
+  "number": 25,
+  "question": "Qual a Pokebola que tem 100% chances de apanhar um Pokemon?",
   "options": [
     {
       "key": "a",
-      "text": "Meowth"
+      "text": "Moon Ball"
     },
     {
       "key": "b",
-      "text": "Staryu"
+      "text": "Ultra Ball"
     },
     {
       "key": "c",
-      "text": "Togepi"
+      "text": "Master Ball"
     },
     {
       "key": "d",
-      "text": "Psyduck"
+      "text": "Beast Ball"
     }
   ],
-  "answer": "d"
+  "answer": "c"
 }
