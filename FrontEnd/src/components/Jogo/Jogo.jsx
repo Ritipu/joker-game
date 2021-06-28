@@ -24,8 +24,8 @@ export default class Jogo extends React.Component {
     this.pontuacao();
   }
 
-  apagarRespostaErradaComJoker() {
-    fetch("/joker", { method: 'DELETE' })
+  async apagarRespostaErradaComJoker() {
+    await fetch("/joker", { method: 'DELETE' })
       .then(response => response.json())
       .then(response => this.setState({ jokerKey: response }));
   }
@@ -66,7 +66,7 @@ export default class Jogo extends React.Component {
 		this.setState({ jokerKey: '' });
 	}
 
-  disableJoker() {
+  async disableJoker() {
     this.setState({ jokerState: true });
   }
 

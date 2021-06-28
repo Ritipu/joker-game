@@ -15,8 +15,8 @@ export default class Joker extends React.Component {
 		this.arrayPop()
 	}
 
-	arrayPop() {
-		fetch("/joker")
+	async arrayPop() {
+		await fetch("/joker")
 			.then(res => res.json())
 			.then(arrayJoker => this.setState(
 				{
@@ -26,10 +26,10 @@ export default class Joker extends React.Component {
 
 	}
 
-	keysENumeroJoker() {
-		this.props.getJokerKey(); // gera chave do joker a apagar
-		this.arrayPop(); // apaga visualmente o joker
-		this.props.disableJoker(); // set disabled = true
+	async keysENumeroJoker() {
+		await this.props.getJokerKey(); // gera chave do joker a apagar
+		await this.arrayPop(); // apaga visualmente o joker
+		await this.props.disableJoker(); // set disabled = true
 	}
 	
 	render() {

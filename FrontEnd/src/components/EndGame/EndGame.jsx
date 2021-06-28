@@ -1,6 +1,5 @@
 import React from 'react';
 import './EndGame.css';
-import StartGame from '../StartGame/StartGame'
 
 export default class EndGame extends React.Component {
     constructor(props) {
@@ -36,8 +35,16 @@ export default class EndGame extends React.Component {
         return (
             <div>
                 <h1>Parabens {this.props.nomeJogador}! Acabaste com: {this.state.pontos} pontos</h1>
-                <button onClick={this.refresh}>Restart Game</button>
+                <button onClick={fetch("/restartState", {
+								method: 'POST',
+								headers: {"Content-Type": "application/json"}
+							}),
+                            this.refresh
+						}
+                        >
+                            Restart Game</button>
             </div>
         )
     }
 }
+

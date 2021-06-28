@@ -305,10 +305,28 @@ server.get('/pontosJoker', async (req, res) => {
 	try {
 		const conteudo = await fs.readFile(JOGO)
 		const conteudoLegivel = JSON.parse(conteudo.toString())
+		conteudoLegivel.jogoTemplate.jokersP1 = [1, 1, 1, 1, 1, 1, 1];
 
 		const jokerPontuacao = conteudoLegivel.jogoTemplate.jokersP1.length * 100;
-
 		conteudoLegivel.jogoTemplate.pontuacaoP1 += jokerPontuacao;
+
+
+
+		await fs.writeFile(JOGO, JSON.stringify(conteudoLegivel, null, 2))
+
+		res.sendStatus(201)
+	} catch (err) {
+		res.status(500).send("Erro")
+	}
+})
+
+server.post('/restartState', async (req, res) => {
+	try {
+		const conteudo = await fs.readFile(JOGO)
+		const conteudoLegivel = JSON.parse(conteudo.toString())
+		
+		conteudoLegivel.jogoTemplate.jokersP1 = [1, 1, 1, 1, 1, 1, 1];
+
 
 		await fs.writeFile(JOGO, JSON.stringify(conteudoLegivel, null, 2))
 
