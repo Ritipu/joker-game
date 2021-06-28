@@ -34,13 +34,7 @@ export default class Corpo extends React.Component {
 			timer: questions.timerControl
 		}))
 	}
-	
-	// TO_ DO
-	// REFACTORIZAR A ATRIBUICAO DE PONTOS ÀS RESPOSTAS NO BACK END E FRONT END
-	getPontos() {
 
-
-	}
 
 	time() {
 		
