@@ -10,7 +10,7 @@ export default class Jogo extends React.Component {
     this.state = {
       jokerKey: '',
       numPergunta: 0,
-      endGame: false,
+      endGame: true,
       jokerState: false,
       pontos: 0,
       jogador: ""
