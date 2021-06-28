@@ -1,24 +1,24 @@
 {
-  "level": "easy",
-  "number": 8,
-  "question": "Que Pokemon se transforma numa Pokedex?",
+  "level": "hard",
+  "number": 25,
+  "question": "Qual a Pokebola que tem 100% chances de apanhar um Pokemon?",
   "options": [
     {
       "key": "a",
-      "text": "Gengar"
+      "text": "Moon Ball"
     },
     {
       "key": "b",
-      "text": "Rotom"
+      "text": "Ultra Ball"
     },
     {
       "key": "c",
-      "text": "Clefairy"
+      "text": "Master Ball"
     },
     {
       "key": "d",
-      "text": "Mew"
+      "text": "Beast Ball"
     }
   ],
-  "answer": "b"
+  "answer": "c"
 }

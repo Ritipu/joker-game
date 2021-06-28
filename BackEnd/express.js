@@ -180,7 +180,7 @@ server.post('/numeroPergunta', async (req, res) => {
 
 		conteudoLegivel.jogoTemplate.perguntaNumero += 1
 
-		if (conteudoLegivel.jogoTemplate.perguntaNumero === 28) {
+		if (conteudoLegivel.jogoTemplate.perguntaNumero === 26) {
 			conteudoLegivel.jogoTemplate.perguntaNumero = 1
 		}
 		await fs.writeFile(JOGO, JSON.stringify(conteudoLegivel, null, 2))
@@ -218,7 +218,7 @@ server.get("/perguntas", async (req, res) => {
 			pergunta = mediumQuestionsFilter[indice]
 		}
 
-		if (numPergunta > 20 && numPergunta <= 27) {
+		if (numPergunta > 20 && numPergunta <= 25) {
 			timerControl = 50;
 			let indice = hardIndices[numPergunta - 21]
 			pergunta = hardQuestionsFilter[indice]

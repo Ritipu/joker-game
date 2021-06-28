@@ -66,8 +66,8 @@ export default class Jogo extends React.Component {
     }
   }
 
-  pontuacao() {
-    fetch("/pontosScreen")
+  async pontuacao() {
+   await fetch("/pontosScreen")
         .then(res => res.json())
         .then(pontos => this.setState(
             {
@@ -133,7 +133,7 @@ export default class Jogo extends React.Component {
       )
     } else {
       return (
-        <EndGame nomeJogador={this.props.nomeJogador}/>
+        <EndGame pontosCalculo={() => this.pontuacao()} pontosDisplay={this.state.pontos} nomeJogador={this.props.nomeJogador}/>
       )
     }
   }
