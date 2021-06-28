@@ -26,6 +26,10 @@ function onClickHandler(event) {
     const audioObj = new Audio('/assets/audio/clickButton.wav');
     audioObj.play();
   }
+  else if (event.target.className === 'Joker-button') {
+    const audioObj = new Audio('/assets/audio/clickButton.wav');
+    audioObj.play();
+  }
   else {
     const audioObj = new Audio('/assets/audio/wrongClick.wav');
     audioObj.play();
