@@ -13,7 +13,7 @@
             "answer": "a"
         },
         {
-            "level": "easy",
+            "level": "medium",
             "number": 2,
             "question": "Os primeiros jogos de Pokemon foram quais?",
             "options": [
@@ -109,7 +109,7 @@
             "answer": "c"
         },
         {
-            "level": "easy",
+            "level": "medium",
             "number": 10,
             "question": "Na segunda geração dos videojogos de Pokemon, existe um boss final escondido no Mt. Silver, qual o seu nome?",
             "options": [
@@ -133,7 +133,7 @@
             "answer": "d"
         },
         {
-            "level": "medium",
+            "level": "easy",
             "number": 12,
             "question": "Em que geração é que foi possível viajar para duas regiões no mesmo jogo?",
             "options": [
@@ -145,7 +145,7 @@
             "answer": "a"
         },
         {
-            "level": "medium",
+            "level": "easy",
             "number": 13,
             "question": "Qual o nome da equipa que tenta roubar o Pikachu?",
             "options": [
@@ -157,7 +157,7 @@
             "answer": "d"
         },
         {
-            "level": "medium",
+            "level": "easy",
             "number": 14,
             "question": "Quantos ginásios tem que se ganhar até se poder ir para a PokeLiga?",
             "options": [
@@ -265,7 +265,7 @@
             "answer": "c"
         },
         {
-            "level": "hard",
+            "level": "medium",
             "number": 23,
             "question": "A funcionalidade dos ovos e todo o sistema de breeding apareceu em que geração?",
             "options": [
@@ -289,7 +289,7 @@
             "answer": "d"
         },
         {
-            "level": "hard",
+            "level": "easy",
             "number": 25,
             "question": "Qual a Pokebola que tem 100% chances de apanhar um Pokemon?",
             "options": [
@@ -375,7 +375,7 @@
         {
             "level": "medium",
             "number": 32,
-            "question": "Em que jogo foram removidos os HM (Hidden Machine?",
+            "question": "Em que jogo foram removidos os HM? (Hidden Machine)",
             "options": [
                 {"key": "a", "text": "Gold & Silver"},
                 {"key": "b", "text": "Ruby & Sapphire"},
@@ -461,7 +461,7 @@
             "number": 39,
             "question": "Que objeto acorda o Snorlax?",
             "options": [
-                {"key": "a", "text": "Poké Flauta"},
+                {"key": "a", "text": "Poké Flute"},
                 {"key": "b", "text": "Max Revive"},
                 {"key": "c", "text": "Full Restore"},
                 {"key": "d", "text": "PokéBall"}

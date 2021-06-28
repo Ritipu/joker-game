@@ -171,7 +171,7 @@ server.post('/nome', async (req, res) => {
 	}
 })
 
-// URI's para Num Perguntas JSON
+// URI's para Num Perguntas JSON - jogo/:id/numeroPergunta
 server.post('/numeroPergunta', async (req, res) => {
 	try {
 
