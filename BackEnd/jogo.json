@@ -2,7 +2,7 @@
   "jogoTemplate": {
     "id": 1,
     "nomeJogador": "teste",
-    "perguntaNumero": 26,
+    "perguntaNumero": 1,
     "pontuacaoP1": 0,
     "pontuacaoP2": 0,
     "jokersP1": [
