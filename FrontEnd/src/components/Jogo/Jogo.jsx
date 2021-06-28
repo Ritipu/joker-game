@@ -39,7 +39,7 @@ export default class Jogo extends React.Component {
   getCorrectVideo() {
 
     if (this.state.numPergunta > 0 && this.state.numPergunta <= 10) {
-      return "/assets/videos/perguntasFaceis.mp4"
+      return "/assets/videos/perguntasFaceis.mp4" 
     }
 
     if (this.state.numPergunta > 10 && this.state.numPergunta <= 20) {
@@ -47,9 +47,23 @@ export default class Jogo extends React.Component {
     }
 
     if (this.state.numPergunta > 20 ) {
-      return "/assets/videos/perguntasDificeis.mp4" 
+      return "/assets/videos/perguntasDificeis.mp4"
     }
-    
+  }
+
+  getCorrectAudio() {
+
+    if (this.state.numPergunta > 0 && this.state.numPergunta <= 10) {
+      return "/assets/audio/easyMusic.mp3" 
+    }
+
+    if (this.state.numPergunta > 10 && this.state.numPergunta <= 20) {
+      return "/assets/audio/mediumMusic.mp3"
+    }
+
+    if (this.state.numPergunta > 20 ) {
+      return "/assets/audio/hardMusic.mp3"
+    }
   }
 
   pontuacao() {
@@ -87,8 +101,7 @@ export default class Jogo extends React.Component {
           <video className="videos" src={this.getCorrectVideo()} loop autoPlay mute>
           </video>
 
-          <audio className="audio" loop autoPlay>
-            <source src="/assets/audio/easyMusic.mp3" type="audio/mp3" />
+          <audio className="audio" src={this.getCorrectAudio()} loop autoPlay>
           </audio>
 
           <div className="Pontos">
