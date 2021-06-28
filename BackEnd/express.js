@@ -16,7 +16,6 @@ let pergunta = undefined;
 let timerControl = undefined;
 
 // funcoes para gerador de perguntas 
-
 async function getPerguntaFacil() {
 	try {
 		const dataPerguntas = await fs.readFile(PERGUNTAS_JSON)
@@ -125,7 +124,26 @@ async function getIndiceJoker() {
 
 }
 
+async function apagaVisualJoker() {
+	const conteudo = await fs.readFile(JOGO)
+	const conteudoLegivel = JSON.parse(conteudo.toString())
 
+	conteudoLegivel.jogoTemplate.jokersP1.pop()
+
+	await fs.writeFile(JOGO, JSON.stringify(conteudoLegivel, null, 2))
+}
+
+// funcao atribuicao pontos
+async function atribuicaoPontos() {
+
+	// if (conteudoLegivel.jogoTemplate.pontuacaoP1 > 0) {
+	// 	conteudoLegivel.jogoTemplate.pontuacaoP1 -= 300
+	// }
+
+	// if (conteudoLegivel.jogoTemplate.pontuacaoP1 <= 0) {
+	// 	conteudoLegivel.jogoTemplate.pontuacaoP1 = 0
+	// }
+}
 server.use(express.json());
 
 // URI para gravar Nome
@@ -152,7 +170,6 @@ server.post('/numeroPergunta', async (req, res) => {
 	try {
 
 		const conteudo = await fs.readFile(JOGO)
-
 		const conteudoLegivel = JSON.parse(conteudo.toString())
 
 		conteudoLegivel.jogoTemplate.perguntaNumero += 1
@@ -228,10 +245,7 @@ server.get("/joker", async (req, res) => {
 
 server.delete('/joker', async (req, res) => {
 	try {
-		const conteudo = await fs.readFile(JOGO)
-		const conteudoLegivel = JSON.parse(conteudo.toString())
-		conteudoLegivel.jogoTemplate.jokersP1.pop()
-		await fs.writeFile(JOGO, JSON.stringify(conteudoLegivel, null, 2))
+		await apagaVisualJoker()
 
 		const key = await getIndiceJoker()
 		console.log(key)
@@ -242,10 +256,9 @@ server.delete('/joker', async (req, res) => {
 })
 
 //URI's para PontosP1
-server.get('/pontosP1', async (req, res) => {
+server.get('/pontosScreen', async (req, res) => {
 	try {
 		const conteudo = await fs.readFile(JOGO)
-
 		const conteudoLegivel = JSON.parse(conteudo.toString())
 
 
@@ -255,13 +268,47 @@ server.get('/pontosP1', async (req, res) => {
 	}
 })
 
-server.post('/maisPontosP1', async (req, res) => {
+server.post('/pontos', async (req, res) => {
+	try {
+
+		const pontosObj = await fs.readFile(JOGO)
+		const pontosObjLegivel = JSON.parse(pontosObj.toString())
+
+		const answerObj = await fs.readFile(PERGUNTA_ATUAL)
+		const answerObjLegivel = JSON.parse(answerObj.toString())
+
+		// comparacao da resposta errada
+		if (req.body.key !== answerObjLegivel.answer) {
+			if (pontosObjLegivel.jogoTemplate.pontuacaoP1 > 0) {
+				pontosObjLegivel.jogoTemplate.pontuacaoP1 -= 300
+			}
+
+			if (pontosObjLegivel.jogoTemplate.pontuacaoP1 <= 0) {
+				pontosObjLegivel.jogoTemplate.pontuacaoP1 = 0
+			}
+		}
+
+		// comparacao da resposta certa
+		if (req.body.key === answerObjLegivel.answer) {
+			pontosObjLegivel.jogoTemplate.pontuacaoP1 += 100
+		}
+
+		await fs.writeFile(JOGO, JSON.stringify(pontosObjLegivel, null, 2))
+
+		res.sendStatus(201)
+	} catch (err) {
+		res.status(500).send("Erro")
+	}
+})
+
+server.get('/pontosJoker', async (req, res) => {
 	try {
 		const conteudo = await fs.readFile(JOGO)
-
 		const conteudoLegivel = JSON.parse(conteudo.toString())
 
-		conteudoLegivel.jogoTemplate.pontuacaoP1 += 100
+		const jokerPontuacao = conteudoLegivel.jogoTemplate.jokersP1.length * 100;
+
+		conteudoLegivel.jogoTemplate.pontuacaoP1 += jokerPontuacao;
 
 		await fs.writeFile(JOGO, JSON.stringify(conteudoLegivel, null, 2))
 
@@ -270,52 +317,16 @@ server.post('/maisPontosP1', async (req, res) => {
 		res.status(500).send("Erro")
 	}
 })
-
-server.delete('/menosPontosP1', async (req, res) => {
-	try {
-		const conteudo = await fs.readFile(JOGO)
-
-		const conteudoLegivel = JSON.parse(conteudo.toString())
-
-		if (conteudoLegivel.jogoTemplate.pontuacaoP1 > 0) {
-			conteudoLegivel.jogoTemplate.pontuacaoP1 -= 300
-		}
-
-		if (conteudoLegivel.jogoTemplate.pontuacaoP1 <= 0) {
-			conteudoLegivel.jogoTemplate.pontuacaoP1 = 0
-		}
-
-		await fs.writeFile(JOGO, JSON.stringify(conteudoLegivel, null, 2))
-
-		res.sendStatus(201)
-	} catch (err) {
-		res.status(500).send("Erro")
-	}
-})
-
-//URI's para PontosP2
-server.get('/pontosP2', async (req, res) => {
-	try {
-		const conteudo = await fs.readFile(JOGO)
-
-		const conteudoLegivel = JSON.parse(conteudo.toString())
-
-
-		res.status(200).json(conteudoLegivel.jogoTemplate.pontuacaoP2)
-	} catch (err) {
-		res.status(500).send("Erro")
-	}
-})
-
 //URI para controlo de video
 server.get('/video', async (req, res) => {
 	try {
 		const conteudo = await fs.readFile(JOGO)
 		const conteudoLegivel = JSON.parse(conteudo.toString())
-		
+
 		res.status(200).json(conteudoLegivel.jogoTemplate.perguntaNumero)
 	} catch (err) {
 		res.status(500).send("Erro")
 	}
 })
+
 server.listen(port, () => console.log(`Ready on ${port}`))

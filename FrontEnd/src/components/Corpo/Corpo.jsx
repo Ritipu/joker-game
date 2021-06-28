@@ -7,7 +7,6 @@ export default class Corpo extends React.Component {
 		this.state = {
 			pergunta: "",
 			respostas: [],
-			resposta: "",
 			perguntaCurrente: "",
 			timer: 0,
 			timerControl: 0,
@@ -25,12 +24,11 @@ export default class Corpo extends React.Component {
 		.then(questions => this.setState(
 			{
 				pergunta: questions.question,
-				respostas: [questions.options[0],
+				respostas: [questions.options[0], // {"key": "a", "text": "1996"},
 				questions.options[1],
 				questions.options[2],
 				questions.options[3]
 				],
-			resposta: questions.answer,
 			perguntaCurrente: `${questions.numPergunta}/27`,
 			timerControl: questions.numPergunta,
 			timer: questions.timerControl
@@ -40,13 +38,8 @@ export default class Corpo extends React.Component {
 	// TO_ DO
 	// REFACTORIZAR A ATRIBUICAO DE PONTOS ÀS RESPOSTAS NO BACK END E FRONT END
 	getPontos() {
-		// if (this.state.resposta_A.key === this.state.resposta) {
-		// 	fetch("/maisPontosP1", { method: 'POST' })
-		// }
-		
-		// if (this.state.resposta_A.key !== this.state.resposta) {
-		// 	fetch("/menosPontosP1", { method: 'DELETE' })
-		// }
+
+
 	}
 
 	time() {
@@ -105,6 +98,19 @@ export default class Corpo extends React.Component {
 								}
 							})
 						} catch (err) {
+							console.log(err);
+						}
+
+						try {
+							await fetch("/pontos", {
+								method: 'POST',
+								body: JSON.stringify(res),
+								headers: {
+									"Content-Type": "application/json"
+								}
+							})
+						}
+						catch (err) {
 							console.log(err);
 						}
 						this.state.timerControl < 27 ? this.gameController() : this.props.getEndGame()

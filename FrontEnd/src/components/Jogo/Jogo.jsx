@@ -20,7 +20,8 @@ export default class Jogo extends React.Component {
     this.enableJoker = this.enableJoker.bind(this)
   }
   componentDidMount() {
-    this.getPerguntaForVideo()
+    this.getPerguntaForVideo();
+    this.pontuacao();
   }
 
   apagarRespostaErradaComJoker() {
@@ -52,7 +53,7 @@ export default class Jogo extends React.Component {
   }
 
   pontuacao() {
-    fetch("/pontosP1")
+    fetch("/pontosScreen")
         .then(res => res.json())
         .then(pontos => this.setState(
             {
@@ -119,7 +120,7 @@ export default class Jogo extends React.Component {
       )
     } else {
       return (
-        <EndGame pontosFinais={this.state.pontos} nomeJogador={this.props.nomeJogador}/>
+        <EndGame nomeJogador={this.props.nomeJogador}/>
       )
     }
   }

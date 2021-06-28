@@ -1,23 +1,23 @@
 {
-  "level": "easy",
-  "number": 6,
-  "question": "Qual o nome do chefe da Team Rocket?",
+  "level": "hard",
+  "number": 25,
+  "question": "Qual a Pokebola que tem 100% chances de apanhar um Pokemon?",
   "options": [
     {
       "key": "a",
-      "text": "Archie"
+      "text": "Moon Ball"
     },
     {
       "key": "b",
-      "text": "Ash"
+      "text": "Ultra Ball"
     },
     {
       "key": "c",
-      "text": "Giovanni"
+      "text": "Master Ball"
     },
     {
       "key": "d",
-      "text": "Brock"
+      "text": "Beast Ball"
     }
   ],
   "answer": "c"

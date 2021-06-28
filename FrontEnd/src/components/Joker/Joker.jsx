@@ -24,14 +24,14 @@ export default class Joker extends React.Component {
 					joker: arrayJoker
 				}
 			))
-		
+
 	}
 
 
 	keysENumeroJoker() {
-		this.props.getJokerKey();
-		this.arrayPop();
-		this.props.disableJoker();
+		this.props.getJokerKey(); // gera chave do joker a apagar
+		this.arrayPop(); // apaga visualmente o joker
+		this.props.disableJoker(); // set disabled = true
 	}
 	render() {
 		return (
@@ -39,7 +39,7 @@ export default class Joker extends React.Component {
 				{
 					this.state.joker.map((joker, i) => (
 						<button key={i} disabled={this.props.jokerState} onClick={this.keysENumeroJoker}>
-							<img src="/assets/imagens/joker.svg" height="80px"alt="joker"/>
+							<img src="/assets/imagens/joker.svg" height="80px" alt="joker" />
 						</button>
 					))
 				}
