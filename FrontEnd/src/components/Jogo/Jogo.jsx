@@ -66,8 +66,8 @@ export default class Jogo extends React.Component {
     }
   }
 
-  pontuacao() {
-    fetch("/pontosScreen")
+  async pontuacao() {
+   await fetch("/pontosScreen")
         .then(res => res.json())
         .then(pontos => this.setState(
             {
@@ -106,8 +106,8 @@ export default class Jogo extends React.Component {
 
           <div className="Pontos">
             <div className="ptPlayer1">
-              <h2>{`${this.props.nomeJogador}
-              ${this.state.pontos} pontos`}</h2>
+              <h2>{this.props.nomeJogador}</h2>
+              <h2>{`${this.state.pontos} pontos`}</h2>
             </div>
             <img className="Logo-top" src="assets/logos/pokejoker.png" alt="Logo do Jogo" />
             {/* <div className="ptPlayer2"><Pontuacao2 /></div> */}
@@ -133,7 +133,7 @@ export default class Jogo extends React.Component {
       )
     } else {
       return (
-        <EndGame nomeJogador={this.props.nomeJogador}/>
+        <EndGame pontosCalculo={() => this.pontuacao()} pontosDisplay={this.state.pontos} nomeJogador={this.props.nomeJogador}/>
       )
     }
   }

@@ -58,46 +58,63 @@ async function getPerguntaDificil() {
 	}
 }
 
-function getIndicePerguntasEasy() {
-	while (easySet.size !== 10) {
-		const indiceQuestionsEasy = Math.floor(Math.random() * (10 - 0))
-		if (!easySet.has(indiceQuestionsEasy)) {
-			easySet.add(indiceQuestionsEasy)
+async function getIndicePerguntasEasy() {
+	try {
+		const easyQuestionsFilter = await getPerguntaFacil()
+		while (easySet.size !== 10) {
+			const indiceQuestionsEasy = Math.floor(Math.random() * easyQuestionsFilter.length)
+			if (!easySet.has(indiceQuestionsEasy)) {
+				easySet.add(indiceQuestionsEasy)
+			}
 		}
+
+		const arrayEasyQuestions = Array.from(easySet)
+		console.log(`Perguntas Fáceis: [${arrayEasyQuestions}]`)
+
+		return arrayEasyQuestions
+
+	} catch (error) {
+		console.log(error)
 	}
-
-	const arrayEasyQuestions = Array.from(easySet)
-	console.log(`Perguntas Fáceis: [${arrayEasyQuestions}]`)
-
-	return arrayEasyQuestions
 }
 
-function getIndicePerguntasMedias() {
-	while (mediumSet.size !== 10) {
-		const indiceQuestionsMedium = Math.floor(Math.random() * (10 - 0))
-		if (!mediumSet.has(indiceQuestionsMedium)) {
-			mediumSet.add(indiceQuestionsMedium)
+async function getIndicePerguntasMedias() {
+	try {
+		const mediumQuestionsFilter = await getPerguntaMedia()
+		while (mediumSet.size !== 10) {
+			const indiceQuestionsMedium = Math.floor(Math.random() * mediumQuestionsFilter.length)
+			if (!mediumSet.has(indiceQuestionsMedium)) {
+				mediumSet.add(indiceQuestionsMedium)
+			}
 		}
+
+		const arrayMediumQuestions = Array.from(mediumSet)
+		console.log(`Perguntas Médias: [${arrayMediumQuestions}]`)
+
+		return arrayMediumQuestions
+
+	} catch (error) {
+		console.log(error)
 	}
-
-	const arrayMediumQuestions = Array.from(mediumSet)
-	console.log(`Perguntas Médias: [${arrayMediumQuestions}]`)
-
-	return arrayMediumQuestions
 }
 
-function getIndicePerguntasDificeis() {
-	while (hardSet.size !== 5) {
-		const indiceQuestionsHard = Math.floor(Math.random() * (5 - 0))
-		if (!hardSet.has(indiceQuestionsHard)) {
-			hardSet.add(indiceQuestionsHard)
+async function getIndicePerguntasDificeis() {
+	try {
+		const hardQuestionsFilter = await getPerguntaDificil()
+		while (hardSet.size !== 5) {
+			const indiceQuestionsHard = Math.floor(Math.random() * hardQuestionsFilter.length)
+			if (!hardSet.has(indiceQuestionsHard)) {
+				hardSet.add(indiceQuestionsHard)
+			}
 		}
+	
+		const arrayHardQuestions = Array.from(hardSet)
+		console.log(`Perguntas Dificeis: [${arrayHardQuestions}] \n`)
+	
+		return arrayHardQuestions
+	} catch (error) {
+		console.log(error)
 	}
-
-	const arrayHardQuestions = Array.from(hardSet)
-	console.log(`Perguntas Dificeis: [${arrayHardQuestions}] \n`)
-
-	return arrayHardQuestions
 }
 
 //funcao gerador Joker
@@ -133,17 +150,6 @@ async function apagaVisualJoker() {
 	await fs.writeFile(JOGO, JSON.stringify(conteudoLegivel, null, 2))
 }
 
-// funcao atribuicao pontos
-async function atribuicaoPontos() {
-
-	// if (conteudoLegivel.jogoTemplate.pontuacaoP1 > 0) {
-	// 	conteudoLegivel.jogoTemplate.pontuacaoP1 -= 300
-	// }
-
-	// if (conteudoLegivel.jogoTemplate.pontuacaoP1 <= 0) {
-	// 	conteudoLegivel.jogoTemplate.pontuacaoP1 = 0
-	// }
-}
 server.use(express.json());
 
 // URI para gravar Nome
@@ -174,7 +180,7 @@ server.post('/numeroPergunta', async (req, res) => {
 
 		conteudoLegivel.jogoTemplate.perguntaNumero += 1
 
-		if (conteudoLegivel.jogoTemplate.perguntaNumero === 28) {
+		if (conteudoLegivel.jogoTemplate.perguntaNumero === 26) {
 			conteudoLegivel.jogoTemplate.perguntaNumero = 1
 		}
 		await fs.writeFile(JOGO, JSON.stringify(conteudoLegivel, null, 2))
@@ -192,9 +198,9 @@ server.get("/perguntas", async (req, res) => {
 		const mediumQuestionsFilter = await getPerguntaMedia()
 		const hardQuestionsFilter = await getPerguntaDificil()
 
-		const easyIndices = getIndicePerguntasEasy() // array de pos unicas
-		const mediumIndices = getIndicePerguntasMedias() // array de pos unicas
-		const hardIndices = getIndicePerguntasDificeis() // array de pos unicas
+		const easyIndices = await getIndicePerguntasEasy() // array de pos unicas
+		const mediumIndices = await getIndicePerguntasMedias() // array de pos unicas
+		const hardIndices = await getIndicePerguntasDificeis() // array de pos unicas
 
 		const dataNumPergunta = await fs.readFile(JOGO)
 		const dataNumPerguntaLegivel = JSON.parse(dataNumPergunta.toString())
@@ -212,7 +218,7 @@ server.get("/perguntas", async (req, res) => {
 			pergunta = mediumQuestionsFilter[indice]
 		}
 
-		if (numPergunta > 20 && numPergunta <= 27) {
+		if (numPergunta > 20 && numPergunta <= 25) {
 			timerControl = 50;
 			let indice = hardIndices[numPergunta - 21]
 			pergunta = hardQuestionsFilter[indice]
@@ -323,7 +329,7 @@ server.post('/restartState', async (req, res) => {
 	try {
 		const conteudo = await fs.readFile(JOGO)
 		const conteudoLegivel = JSON.parse(conteudo.toString())
-		
+
 		conteudoLegivel.jogoTemplate.jokersP1 = [1, 1, 1, 1, 1, 1, 1];
 		conteudoLegivel.jogoTemplate.pontuacaoP1 = 0;
 
