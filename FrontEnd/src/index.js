@@ -11,9 +11,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-
 function onClickHandler(event) {
-
   if (event.target.tagName === 'INPUT') {
     const audioObj = new Audio('/assets/audio/clickButton.wav');
     audioObj.play();
@@ -29,12 +27,14 @@ function onClickHandler(event) {
   else if (event.target.className === 'Joker-button') {
     const audioObj = new Audio('/assets/audio/clickButton.wav');
     audioObj.play();
-  }
-  else {
+  } else if (event.target.className === 'pokeBola') {
+    const audioObj = new Audio('/assets/audio/clickButton.wav');
+    audioObj.play();
+  } else {
     const audioObj = new Audio('/assets/audio/wrongClick.wav');
     audioObj.play();
+    console.log(event.target)
   }
-  
 }
 
 document.getElementById('root').addEventListener('click', onClickHandler)

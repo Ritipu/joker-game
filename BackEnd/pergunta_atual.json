@@ -1,24 +1,24 @@
 {
-  "level": "hard",
-  "number": 25,
-  "question": "Qual a Pokebola que tem 100% chances de apanhar um Pokemon?",
+  "level": "medium",
+  "number": 12,
+  "question": "Em que geração é que foi possível viajar para duas regiões no mesmo jogo?",
   "options": [
     {
       "key": "a",
-      "text": "Moon Ball"
+      "text": "2ª geração"
     },
     {
       "key": "b",
-      "text": "Ultra Ball"
+      "text": "3ª geração"
     },
     {
       "key": "c",
-      "text": "Master Ball"
+      "text": "5ª geração"
     },
     {
       "key": "d",
-      "text": "Beast Ball"
+      "text": "4ª geração"
     }
   ],
-  "answer": "c"
+  "answer": "a"
 }

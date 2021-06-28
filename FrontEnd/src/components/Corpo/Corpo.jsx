@@ -116,7 +116,7 @@ export default class Corpo extends React.Component {
 						this.state.timerControl < 27 ? this.gameController() : this.props.getEndGame()
 					}}
 					>
-					<img src="/assets/imagens/poke_icon.png" alt="pergunta_pokeball"/>{res.text}
+					<img src="/assets/imagens/poke_icon.png" className="pokeBola" alt="pergunta_pokeball"/>{res.text}
 					</button>
 					))
 				}
