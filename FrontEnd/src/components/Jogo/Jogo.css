@@ -41,7 +41,6 @@
     transition: 0.3s;
     width: 150px;
     height: 100px;
-    display:flex;
     align-self: center;
 }
 
