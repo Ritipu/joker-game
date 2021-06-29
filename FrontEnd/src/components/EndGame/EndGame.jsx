@@ -30,7 +30,7 @@ render() {
 					})
 					this.refresh()
 				}
-				}> <img src="./assets/imagens/pokeball.png" /> Restart</button>
+				}> <img src="./assets/imagens/pokeball.png" alt="Restart"/> Restart</button>
                 </div>
         )
     }

@@ -2,7 +2,7 @@
   "jogo": {
     "id": 0,
     "nomeJogador": "teste",
-    "perguntaNumero": 1,
+    "perguntaNumero": 6,
     "pontuacaoP1": 0,
     "jokersP1": [
       1,

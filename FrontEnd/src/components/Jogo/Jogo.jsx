@@ -22,7 +22,6 @@ export default class Jogo extends React.Component {
   componentDidMount() {
     this.getPerguntaForVideo();
     this.pontuacao();
-    console.log(`ID do Jogo: ${this.props.idJogo}`)
   }
 
   async apagarRespostaErradaComJoker() {

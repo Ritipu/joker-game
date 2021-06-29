@@ -169,13 +169,6 @@ server.get('/geraID', async (req, res) => {
 	}
 })
 
-server.get('/gravaJogo/:id', (req, res) => {
-		
-		// const conteudo = await fs.readFile(JOGO)
-		// const conteudoLegivel = JSON.parse(conteudo.toString())
-		res.send(console.log('Ola do servidor. O teu ID e: ' + req.params.id))
-})
-
 // URI para gravar Nome
 server.post('/nome', async (req, res) => {
 	try {

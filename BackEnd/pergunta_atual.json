@@ -1,23 +1,23 @@
 {
-  "level": "hard",
-  "number": 21,
-  "question": "Em Pokemon XD: Gale of Darkness, para a Nintendo GameCube, que Pokemon temos que purificar?",
+  "level": "easy",
+  "number": 12,
+  "question": "Em que geração é que foi possível viajar para duas regiões no mesmo jogo?",
   "options": [
     {
       "key": "a",
-      "text": "Shadow Lugia"
+      "text": "2ª geração"
     },
     {
       "key": "b",
-      "text": "Shadow Ho-oh"
+      "text": "3ª geração"
     },
     {
       "key": "c",
-      "text": "Shadow Pikachu"
+      "text": "5ª geração"
     },
     {
       "key": "d",
-      "text": "Shadow Mewtwo"
+      "text": "4ª geração"
     }
   ],
   "answer": "a"

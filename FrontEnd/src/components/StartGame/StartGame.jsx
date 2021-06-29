@@ -33,7 +33,6 @@ export default class StartGame extends React.Component {
   
   jogo() {
     fetch(`/gravaJogo/${this.state.id}`)
-    console.log(`Id do Jogo no StartGame: ${this.state.id}`)
     this.setState({ gameStart: true });
     this.sendName();
   }
