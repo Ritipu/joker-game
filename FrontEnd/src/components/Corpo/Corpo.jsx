@@ -24,7 +24,8 @@ export default class Corpo extends React.Component {
 			.then(questions => this.setState(
 				{
 					pergunta: questions.question,
-					respostas: [questions.options[0], // {"key": "a", "text": "1996"},
+					respostas: [
+					questions.options[0], // {"key": "a", "text": "1996"},
 					questions.options[1],
 					questions.options[2],
 					questions.options[3]

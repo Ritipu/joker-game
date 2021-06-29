@@ -10,7 +10,7 @@ export default class Jogo extends React.Component {
     this.state = {
       jokerKey: '',
       numPergunta: 0,
-      endGame: true,
+      endGame: false,
       jokerState: false,
       pontos: 0,
       jogador: ""
@@ -22,6 +22,7 @@ export default class Jogo extends React.Component {
   componentDidMount() {
     this.getPerguntaForVideo();
     this.pontuacao();
+    console.log(`ID do Jogo: ${this.props.idJogo}`)
   }
 
   async apagarRespostaErradaComJoker() {
@@ -98,7 +99,7 @@ export default class Jogo extends React.Component {
       return (
         <div className="Jogo">
 
-          <video className="videos" src={this.getCorrectVideo()} loop autoPlay mute>
+          <video className="videos" src={this.getCorrectVideo()} loop autoPlay muted>
           </video>
 
           <audio className="audio" src={this.getCorrectAudio()} loop autoPlay>
@@ -118,7 +119,7 @@ export default class Jogo extends React.Component {
             <div className="joker"><Joker getJokerKey={() => this.apagarRespostaErradaComJoker()}
             jokerState={this.state.jokerState} 
             disableJoker={() => this.disableJoker()}/></div>
-
+            
             <div className="jogo"><Corpo jokerKey={this.state.jokerKey} 
             clearJokerKey={() => this.clearJokerKey()} 
             videoControl={() => this.getPerguntaForVideo()}

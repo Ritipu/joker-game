@@ -33,7 +33,6 @@ function onClickHandler(event) {
   } else {
     const audioObj = new Audio('/assets/audio/wrongClick.wav');
     audioObj.play();
-    console.log(event.target)
   }
 }
 

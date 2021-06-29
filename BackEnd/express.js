@@ -8,6 +8,8 @@ const PERGUNTAS_JSON = "perguntas.json";
 const JOGO = "jogo.json";
 const PERGUNTA_ATUAL = "pergunta_atual.json"
 
+let session_ID = 0;
+
 const easySet = new Set();
 const mediumSet = new Set();
 const hardSet = new Set();
@@ -145,12 +147,34 @@ async function apagaVisualJoker() {
 	const conteudo = await fs.readFile(JOGO)
 	const conteudoLegivel = JSON.parse(conteudo.toString())
 
-	conteudoLegivel.jogoTemplate.jokersP1.pop()
+	conteudoLegivel.jogo.jokersP1.pop()
 
 	await fs.writeFile(JOGO, JSON.stringify(conteudoLegivel, null, 2))
 }
 
+async function incrementaID() {
+	return session_ID += 1
+}
+
 server.use(express.json());
+
+// URI para gerar ID
+server.get('/geraID', async (req, res) => {
+	try {
+		const testeAsync = await incrementaID()
+		console.log(`ID do Jogo: ${testeAsync}`)
+		res.status(200).json(testeAsync)
+	} catch (err) {
+		res.status(500).send("Erro")
+	}
+})
+
+server.get('/gravaJogo/:id', (req, res) => {
+		
+		// const conteudo = await fs.readFile(JOGO)
+		// const conteudoLegivel = JSON.parse(conteudo.toString())
+		res.send(console.log('Ola do servidor. O teu ID e: ' + req.params.id))
+})
 
 // URI para gravar Nome
 server.post('/nome', async (req, res) => {
@@ -160,7 +184,7 @@ server.post('/nome', async (req, res) => {
 		const conteudoLegivel = JSON.parse(conteudo.toString())
 
 		console.log(`Player Name: ${req.body.nome}`)
-		conteudoLegivel.jogoTemplate.nomeJogador = req.body.nome
+		conteudoLegivel.jogo.nomeJogador = req.body.nome
 
 
 		await fs.writeFile(JOGO, JSON.stringify(conteudoLegivel, null, 2))
@@ -178,10 +202,10 @@ server.post('/numeroPergunta', async (req, res) => {
 		const conteudo = await fs.readFile(JOGO)
 		const conteudoLegivel = JSON.parse(conteudo.toString())
 
-		conteudoLegivel.jogoTemplate.perguntaNumero += 1
+		conteudoLegivel.jogo.perguntaNumero += 1
 
-		if (conteudoLegivel.jogoTemplate.perguntaNumero === 26) {
-			conteudoLegivel.jogoTemplate.perguntaNumero = 1
+		if (conteudoLegivel.jogo.perguntaNumero === 26) {
+			conteudoLegivel.jogo.perguntaNumero = 1
 		}
 		await fs.writeFile(JOGO, JSON.stringify(conteudoLegivel, null, 2))
 
@@ -204,7 +228,7 @@ server.get("/perguntas", async (req, res) => {
 
 		const dataNumPergunta = await fs.readFile(JOGO)
 		const dataNumPerguntaLegivel = JSON.parse(dataNumPergunta.toString())
-		const numPergunta = dataNumPerguntaLegivel.jogoTemplate.perguntaNumero
+		const numPergunta = dataNumPerguntaLegivel.jogo.perguntaNumero
 
 		if (numPergunta <= 10) {
 			timerControl = 30;
@@ -243,7 +267,7 @@ server.get("/joker", async (req, res) => {
 
 		const conteudoLegivel = JSON.parse(conteudo.toString())
 
-		res.status(200).json(conteudoLegivel.jogoTemplate.jokersP1)
+		res.status(200).json(conteudoLegivel.jogo.jokersP1)
 	} catch (err) {
 		res.status(500).send("Erro")
 	}
@@ -268,7 +292,7 @@ server.get('/pontosScreen', async (req, res) => {
 		const conteudoLegivel = JSON.parse(conteudo.toString())
 
 
-		res.status(200).json(conteudoLegivel.jogoTemplate.pontuacaoP1)
+		res.status(200).json(conteudoLegivel.jogo.pontuacaoP1)
 	} catch (err) {
 		res.status(500).send("Erro")
 	}
@@ -285,18 +309,18 @@ server.post('/pontos', async (req, res) => {
 
 		// comparacao da resposta errada
 		if (req.body.key !== answerObjLegivel.answer) {
-			if (pontosObjLegivel.jogoTemplate.pontuacaoP1 > 0) {
-				pontosObjLegivel.jogoTemplate.pontuacaoP1 -= 300
+			if (pontosObjLegivel.jogo.pontuacaoP1 > 0) {
+				pontosObjLegivel.jogo.pontuacaoP1 -= 300
 			}
 
-			if (pontosObjLegivel.jogoTemplate.pontuacaoP1 <= 0) {
-				pontosObjLegivel.jogoTemplate.pontuacaoP1 = 0
+			if (pontosObjLegivel.jogo.pontuacaoP1 <= 0) {
+				pontosObjLegivel.jogo.pontuacaoP1 = 0
 			}
 		}
 
 		// comparacao da resposta certa
 		if (req.body.key === answerObjLegivel.answer) {
-			pontosObjLegivel.jogoTemplate.pontuacaoP1 += 100
+			pontosObjLegivel.jogo.pontuacaoP1 += 100
 		}
 
 		await fs.writeFile(JOGO, JSON.stringify(pontosObjLegivel, null, 2))
@@ -312,8 +336,8 @@ server.get('/pontosJoker', async (req, res) => {
 		const conteudo = await fs.readFile(JOGO)
 		const conteudoLegivel = JSON.parse(conteudo.toString())
 
-		const jokerPontuacao = conteudoLegivel.jogoTemplate.jokersP1.length * 100;
-		conteudoLegivel.jogoTemplate.pontuacaoP1 += jokerPontuacao;
+		const jokerPontuacao = conteudoLegivel.jogo.jokersP1.length * 100;
+		conteudoLegivel.jogo.pontuacaoP1 += jokerPontuacao;
 
 
 
@@ -330,8 +354,8 @@ server.post('/restartState', async (req, res) => {
 		const conteudo = await fs.readFile(JOGO)
 		const conteudoLegivel = JSON.parse(conteudo.toString())
 
-		conteudoLegivel.jogoTemplate.jokersP1 = [1, 1, 1, 1, 1, 1, 1];
-		conteudoLegivel.jogoTemplate.pontuacaoP1 = 0;
+		conteudoLegivel.jogo.jokersP1 = [1, 1, 1, 1, 1, 1, 1];
+		conteudoLegivel.jogo.pontuacaoP1 = 0;
 
 
 		await fs.writeFile(JOGO, JSON.stringify(conteudoLegivel, null, 2))
@@ -347,7 +371,7 @@ server.get('/video', async (req, res) => {
 		const conteudo = await fs.readFile(JOGO)
 		const conteudoLegivel = JSON.parse(conteudo.toString())
 
-		res.status(200).json(conteudoLegivel.jogoTemplate.perguntaNumero)
+		res.status(200).json(conteudoLegivel.jogo.perguntaNumero)
 	} catch (err) {
 		res.status(500).send("Erro")
 	}

@@ -1,24 +1,24 @@
 {
   "level": "hard",
-  "number": 22,
-  "question": "Quantos Pokemons é que existem ao todo, até à 8ª geração",
+  "number": 21,
+  "question": "Em Pokemon XD: Gale of Darkness, para a Nintendo GameCube, que Pokemon temos que purificar?",
   "options": [
     {
       "key": "a",
-      "text": "595"
+      "text": "Shadow Lugia"
     },
     {
       "key": "b",
-      "text": "696"
+      "text": "Shadow Ho-oh"
     },
     {
       "key": "c",
-      "text": "898"
+      "text": "Shadow Pikachu"
     },
     {
       "key": "d",
-      "text": "797"
+      "text": "Shadow Mewtwo"
     }
   ],
-  "answer": "c"
+  "answer": "a"
 }
