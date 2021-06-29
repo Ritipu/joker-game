@@ -16,22 +16,22 @@ export default class EndGame extends React.Component {
 		window.location.reload()
 	}
 
-	render() {
-		return (
-			<div>
-				<h1>Parabens {this.props.nomeJogador}! Acabaste com: {this.props.pontosDisplay} pontos</h1>
-				<button onClick={async (valor) => {
+render() {
+        return (
+            
+                <div className="bgEndGame" style={{ backgroundImage: 'url(./assets/imagens/endGame.png' }}>
+                    <div className="space"></div>
+                    <p className="congrats">Parabéns {this.props.nomeJogador}!</p>
+                    <p className="pontos">Acabaste com: <br /> <br />  {this.props.pontosDisplay} pontos</p>
+                    <button onClick={async (valor) => {
 					await fetch("/restartState", {
 						method: 'POST',
 						headers: { "Content-Type": "application/json" }
 					})
 					this.refresh()
 				}
-				}
-				>
-					Restart Game</button>
-			</div>
-		)
-	}
+				}> <img src="./assets/imagens/pokeball.png" /> Restart</button>
+                </div>
+        )
+    }
 }
-
