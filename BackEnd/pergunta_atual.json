@@ -1,24 +1,24 @@
 {
   "level": "easy",
-  "number": 12,
-  "question": "Em que geração é que foi possível viajar para duas regiões no mesmo jogo?",
+  "number": 3,
+  "question": "Qual destes Pokemon é o Pokemon Deus?",
   "options": [
     {
       "key": "a",
-      "text": "2ª geração"
+      "text": "Mew"
     },
     {
       "key": "b",
-      "text": "3ª geração"
+      "text": "Arceus"
     },
     {
       "key": "c",
-      "text": "5ª geração"
+      "text": "Mewtwo"
     },
     {
       "key": "d",
-      "text": "4ª geração"
+      "text": "Celebi"
     }
   ],
-  "answer": "a"
+  "answer": "b"
 }
