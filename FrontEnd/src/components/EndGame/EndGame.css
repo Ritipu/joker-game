@@ -14,12 +14,6 @@
     height: 100vh;
 }
 
-p {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .congrats {
     font-family: 'Press Start 2P', cursive;
     font-size: 46px;
@@ -35,12 +29,7 @@ p {
     text-shadow: 4px 4px black;
 }
 
-button img {
-    width: 120px;
-    margin: 10px;
-}
-
-button {
+.btnEndGame {
     display: flex;
     width: 450px;
     border-radius: 80px;
@@ -55,10 +44,15 @@ button {
 
 }
 
-button:hover {
+.btnEndGame:hover {
     background-color: #ffda09;
     transform: scale(1.1);
     color: #ffffff;
+}
+
+.btnEndGameImg {
+    width: 120px;
+    margin: 10px;
 }
 
 .space {

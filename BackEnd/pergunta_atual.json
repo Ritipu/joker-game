@@ -1,24 +1,24 @@
 {
-  "level": "easy",
-  "number": 3,
-  "question": "Qual destes Pokemon é o Pokemon Deus?",
+  "level": "hard",
+  "number": 24,
+  "question": "Que Pokemon se podia capturar na Cerulean Cave, no Pokemon Red, Blue, Yellow e Green",
   "options": [
     {
       "key": "a",
-      "text": "Mew"
+      "text": "Articuno"
     },
     {
       "key": "b",
-      "text": "Arceus"
+      "text": "Zapdos"
     },
     {
       "key": "c",
-      "text": "Mewtwo"
+      "text": "Moltres"
     },
     {
       "key": "d",
-      "text": "Celebi"
+      "text": "Mewtwo"
     }
   ],
-  "answer": "b"
+  "answer": "d"
 }
