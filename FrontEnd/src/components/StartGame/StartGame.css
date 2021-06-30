@@ -6,13 +6,6 @@
   font-family: 'Quicksand', sans-serif;
 }
 
-.videos {
-  height: 100vh;
-  position: fixed;
-  z-index: -20;
-}
-
-
 .StartGame-logo {
   width: 700px;
   height: 200px;
@@ -38,6 +31,13 @@
   justify-content: center;
   width: 100vw;
   height: 100vh;
+}
+
+.StartGame-videos {
+  height: 100;
+  width: 100;
+  position: fixed;
+  z-index: -20;
 }
 
 .StartGame-button:hover {
