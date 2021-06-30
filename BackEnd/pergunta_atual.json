@@ -1,24 +1,24 @@
 {
-  "level": "hard",
-  "number": 24,
-  "question": "Que Pokemon se podia capturar na Cerulean Cave, no Pokemon Red, Blue, Yellow e Green",
+  "level": "easy",
+  "number": 28,
+  "question": "Qual o primeiro filme live-action de pokemon?",
   "options": [
     {
       "key": "a",
-      "text": "Articuno"
+      "text": "Pokemon: Detective Pikachu"
     },
     {
       "key": "b",
-      "text": "Zapdos"
+      "text": "Pokemon: Arceus and the Jewel of Life"
     },
     {
       "key": "c",
-      "text": "Moltres"
+      "text": "Pokemon: Mewtwo Returns"
     },
     {
       "key": "d",
-      "text": "Mewtwo"
+      "text": "Pokemon: Secret of the Unown"
     }
   ],
-  "answer": "d"
+  "answer": "a"
 }

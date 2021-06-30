@@ -106,10 +106,13 @@ export default class Jogo extends React.Component {
 
           <div className="Pontos">
             <div className="ptPlayer1">
-              <h2>{this.props.nomeJogador}</h2>
-              <h2>{`${this.state.pontos} pontos`}</h2>
+              <h2>{this.props.nomeJogador}</h2> <br/>
+              <h2>{`Pontos: ${this.state.pontos}`}</h2>
             </div>
-            <img className="Logo-top" src="assets/logos/pokejoker.png" alt="Logo do Jogo" />
+            <div className="box-logo">
+              <img className="Logo-top" src="assets/logos/pokejoker.png" alt="Logo do Jogo" />
+            </div>
+            
             {/* <div className="ptPlayer2"><Pontuacao2 /></div> */}
           </div>
 

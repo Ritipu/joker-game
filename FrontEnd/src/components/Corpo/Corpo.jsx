@@ -25,10 +25,10 @@ export default class Corpo extends React.Component {
 				{
 					pergunta: questions.question,
 					respostas: [
-					questions.options[0], // {"key": "a", "text": "1996"},
-					questions.options[1],
-					questions.options[2],
-					questions.options[3]
+						questions.options[0], // {"key": "a", "text": "1996"},
+						questions.options[1],
+						questions.options[2],
+						questions.options[3]
 					],
 					perguntaCurrente: `${questions.numPergunta}/25`,
 					timerControl: questions.numPergunta,
@@ -71,50 +71,53 @@ export default class Corpo extends React.Component {
 	}
 	render() {
 		return (
-			<div id='borderimg' className="Card">
-				<h2>{this.state.timer}</h2>
-				<br />
-				<h2>{this.state.perguntaCurrente}</h2>
-				<br />
+			<div className="conteudo">
+				<h2 className="counter">{this.state.timer}</h2>
+				<div id='borderimg' className="Card">
 
-				<h1>{this.state.pergunta}</h1>
-				<br />
-				<div className="box1">
-					{
-						this.state.respostas.map((res) => (
-							<button key={res.key}
-								disabled={this.props.jokerKey.jokerKey !== res.key ? false : true}
-								onClick={async (valor) => {
-									try {
-										await fetch("/numeroPergunta", {
-											method: 'POST',
-											headers: {
-												"Content-Type": "application/json"
-											}
-										})
-									} catch (err) {
-										console.log(err);
-									}
+					<br />
+					<h2>{this.state.perguntaCurrente}</h2>
+					<br />
 
-									try {
-										await fetch("/pontos", {
-											method: 'POST',
-											body: JSON.stringify(res),
-											headers: {
-												"Content-Type": "application/json"
-											}
-										})
-									}
-									catch (err) {
-										console.log(err);
-									}
-									this.state.timerControl < 25 ? this.gameController() : this.props.getEndGame()
-								}}
-							>
-								<img src="/assets/imagens/poke_icon.png" className="pokeBola" alt="pergunta_pokeball" />{res.text}
-							</button>
-						))
-					}
+					<h1>{this.state.pergunta}</h1>
+					<br />
+					<div className="box1">
+						{
+							this.state.respostas.map((res) => (
+								<button key={res.key}
+									disabled={this.props.jokerKey.jokerKey !== res.key ? false : true}
+									onClick={async (valor) => {
+										try {
+											await fetch("/numeroPergunta", {
+												method: 'POST',
+												headers: {
+													"Content-Type": "application/json"
+												}
+											})
+										} catch (err) {
+											console.log(err);
+										}
+
+										try {
+											await fetch("/pontos", {
+												method: 'POST',
+												body: JSON.stringify(res),
+												headers: {
+													"Content-Type": "application/json"
+												}
+											})
+										}
+										catch (err) {
+											console.log(err);
+										}
+										this.state.timerControl < 25 ? this.gameController() : this.props.getEndGame()
+									}}
+								>
+									<img src="/assets/imagens/poke_icon.png" className="pokeBola" alt="pergunta_pokeball" />{res.text}
+								</button>
+							))
+						}
+					</div>
 				</div>
 			</div>
 		)

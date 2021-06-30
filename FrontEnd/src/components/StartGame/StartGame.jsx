@@ -20,7 +20,10 @@ export default class StartGame extends React.Component {
       .then(response => response.json())
       .then(response => this.setState({ id: response }))
     
-    // 
+    fetch("/restartState", {
+      method: 'POST',
+      headers: { "Content-Type": "application/json" }
+    })
   }
 
 

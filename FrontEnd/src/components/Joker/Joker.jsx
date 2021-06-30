@@ -38,7 +38,7 @@ export default class Joker extends React.Component {
 				{
 					this.state.joker.map((joker, i) => (
 						<button key={i} disabled={this.props.jokerState} onClick={this.keysENumeroJoker} className="joker-button">
-							<img src="/assets/imagens/joker.svg" height="80px" alt="joker" className="joker-pikachu" />
+							<img src={this.props.jokerState ? "/assets/imagens/joker_disabled.svg" : "/assets/imagens/joker.svg"} height="80px" alt="joker" className="joker-pikachu" />
 						</button>
 					))
 				}

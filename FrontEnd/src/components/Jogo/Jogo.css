@@ -9,6 +9,7 @@
     z-index: -20;
 }
 
+/* 3/4 do ecra - parte de baixo */
 .Jogo1 {
     display: flex;
     flex-direction: row;
@@ -16,6 +17,7 @@
     height: 70%;
 }
 
+/* 1/4 do ecra - parte de cima */
 .Pontos {
     display: flex;
     flex-direction: row;
@@ -24,37 +26,37 @@
     height: 30%;
 }
 
-.ptPlayer2 {
-    background-color:rgba(255, 255, 255, 0.842);
-    border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
-    transition: 0.3s;
-    width: 150px;
-    height: 100px;
-    display:flex;
+/* Logotipo */
+.box-logo {
+    display: flex;
     align-self: center;
-}
-
-.ptPlayer1 {
-    background-color:rgba(255, 255, 255, 0.842);
-    border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
-    transition: 0.3s;
-    width: 150px;
-    height: 100px;
-    align-self: center;
-    margin-right: 10%;
 }
 
 .Logo-top {
-    height: 200px;
+    height: 175px;
+}
+
+/* Caixa da pontuacao */
+.ptPlayer1 {
     display: flex;
+    flex-direction: column;
     align-self: center;
-    margin-right: 20%;
+    align-items: left;
+    position: absolute;
+    left: 0;
+    margin-left: 10%;
+    font-size: 18px;
+    color: #ffda09;
+    text-shadow: 5px 5px #2c48c5;
+}
+
+.ptPlayer1 h2 {
+    font-family: 'Press Start 2P', cursive;
 }
 
 .Oak {
-    height: 450px;
     display: flex;
-    align-self: flex-end
+    align-self: flex-end;
+    height: 450px;
+    margin-bottom: 5%;
 }

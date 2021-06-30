@@ -1,3 +1,13 @@
+.counter {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 50px;
+    color: #ffda09;
+    text-shadow: 5px 5px #2c48c5;
+}
+
 .Corpo {
     display: flex;
     flex-direction: column;

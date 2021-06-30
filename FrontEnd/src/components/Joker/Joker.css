@@ -3,6 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-left: 5%;
 }
 
 .joker-component {
@@ -18,5 +19,6 @@
 }
 
 .joker button:disabled{
-    background-color: blue;
+    background:none;
+    border: none;
 }
