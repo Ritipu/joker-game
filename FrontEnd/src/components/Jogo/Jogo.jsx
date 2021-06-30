@@ -2,12 +2,10 @@ import React from 'react';
 import './Jogo.css';
 import Corpo from '../Corpo/Corpo'
 import Joker from '../Joker/Joker';
-import Pontuacao1 from '../Pontuacao/Pontuacao1';
-import Pontuacao2 from '../Pontuacao/Pontuacao2';
+import EndGame from '../EndGame/EndGame';
 
 export default class Jogo extends React.Component {
-<<<<<<< Updated upstream
-=======
+
   constructor(props) {
     super(props);
     this.state = {
@@ -95,30 +93,49 @@ export default class Jogo extends React.Component {
     this.setState({endGame: true})
   }
 
->>>>>>> Stashed changes
-
   render() {
-    return (
-      <div className="Jogo">
-        <video className="videos" loop autoPlay mute>
-          <source src="/assets/videos/perguntasFaceis.mp4" type="video/mp4" />
-        </video>
-        <audio class="audio" loop autoPlay>
-          <source src="/assets/audio/easyMusic.mp3" type="audio/mp3" />
-        </audio>
-        <div className="Pontos">
-          <div className="ptPlayer1"><Pontuacao1 /></div>
-          <img className="Logo-top" src="assets/logos/pokejoker.png" alt="Logo do Jogo" />
-          
-          <div className="ptPlayer2"><Pontuacao2 /></div>
+    if(this.state.endGame === false) {
+      return (
+        <div className="Jogo">
+
+          <video className="videos" src={this.getCorrectVideo()} loop autoPlay muted>
+          </video>
+
+          <audio className="audio" src={this.getCorrectAudio()} loop autoPlay>
+          </audio>
+
+          <div className="Pontos">
+            <div className="ptPlayer1">
+              <h2>{this.props.nomeJogador}</h2>
+              <h2>{`${this.state.pontos} pontos`}</h2>
+            </div>
+            <img className="Logo-top" src="assets/logos/pokejoker.png" alt="Logo do Jogo" />
+            {/* <div className="ptPlayer2"><Pontuacao2 /></div> */}
+          </div>
+
+          <div className="Jogo1">
+
+            <div className="joker"><Joker getJokerKey={() => this.apagarRespostaErradaComJoker()}
+            jokerState={this.state.jokerState} 
+            disableJoker={() => this.disableJoker()}/></div>
+            
+            <div className="jogo"><Corpo jokerKey={this.state.jokerKey} 
+            clearJokerKey={() => this.clearJokerKey()} 
+            videoControl={() => this.getPerguntaForVideo()}
+            getEndGame={() => this.getEndGame()}
+            enableJoker={() => this.enableJoker()}
+            pontuacao={() => this.pontuacao()}
+            /></div>
+
+            <img className="Oak" src="/assets/imagens/oak.png" alt="Professor Carvalho" />
+          </div>
         </div>
-        <div className="Jogo1">
-          <div className="joker"><Joker/></div>
-          <div className="jogo"><Corpo /></div>
-          <img className="Oak" src="/assets/imagens/oak.png" alt="Professor Carvalho" />
-        </div>
-      </div>
-    )
+      )
+    } else {
+      return (
+        <EndGame pontosCalculo={() => this.pontuacao()} pontosDisplay={this.state.pontos} nomeJogador={this.props.nomeJogador}/>
+      )
+    }
   }
 }
 

@@ -1,7 +1,6 @@
 .joker {
     display: flex;
     flex-direction: column;
-<<<<<<< Updated upstream
     justify-content: center;
     align-self: flex-end;
     width: 150px;
@@ -14,7 +13,6 @@
 
 .joker button{
     font-size: 40px
-=======
+
     transform: scale(0.9);
->>>>>>> Stashed changes
 }

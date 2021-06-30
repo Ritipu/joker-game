@@ -6,6 +6,9 @@ const port = 3001;
 
 const PERGUNTAS_JSON = "perguntas.json";
 const JOGO = "jogo.json";
+const PERGUNTA_ATUAL = "pergunta_atual.json"
+
+let session_ID = 0;
 
 const easySet = new Set();
 const mediumSet = new Set();
@@ -15,7 +18,6 @@ let pergunta = undefined;
 let timerControl = undefined;
 
 // funcoes para gerador de perguntas 
-
 async function getPerguntaFacil() {
 	try {
 		const dataPerguntas = await fs.readFile(PERGUNTAS_JSON)
@@ -58,64 +60,145 @@ async function getPerguntaDificil() {
 	}
 }
 
-function getIndicePerguntasEasy() {
-	while (easySet.size !== 10) {
-		const indiceQuestionsEasy = Math.floor(Math.random() * (10 - 0))
-		if (!easySet.has(indiceQuestionsEasy)) {
-			easySet.add(indiceQuestionsEasy)
+async function getIndicePerguntasEasy() {
+	try {
+		const easyQuestionsFilter = await getPerguntaFacil()
+		while (easySet.size !== 10) {
+			const indiceQuestionsEasy = Math.floor(Math.random() * easyQuestionsFilter.length)
+			if (!easySet.has(indiceQuestionsEasy)) {
+				easySet.add(indiceQuestionsEasy)
+			}
 		}
+
+		const arrayEasyQuestions = Array.from(easySet)
+		console.log(`Perguntas Fáceis: [${arrayEasyQuestions}]`)
+
+		return arrayEasyQuestions
+
+	} catch (error) {
+		console.log(error)
 	}
-
-	const arrayEasyQuestions = Array.from(easySet)
-	console.log(`Perguntas Fáceis: [${arrayEasyQuestions}]`)
-
-	return arrayEasyQuestions
 }
 
-function getIndicePerguntasMedias() {
-	while (mediumSet.size !== 10) {
-		const indiceQuestionsMedium = Math.floor(Math.random() * (10 - 0))
-		if (!mediumSet.has(indiceQuestionsMedium)) {
-			mediumSet.add(indiceQuestionsMedium)
+async function getIndicePerguntasMedias() {
+	try {
+		const mediumQuestionsFilter = await getPerguntaMedia()
+		while (mediumSet.size !== 10) {
+			const indiceQuestionsMedium = Math.floor(Math.random() * mediumQuestionsFilter.length)
+			if (!mediumSet.has(indiceQuestionsMedium)) {
+				mediumSet.add(indiceQuestionsMedium)
+			}
 		}
+
+		const arrayMediumQuestions = Array.from(mediumSet)
+		console.log(`Perguntas Médias: [${arrayMediumQuestions}]`)
+
+		return arrayMediumQuestions
+
+	} catch (error) {
+		console.log(error)
 	}
-
-	const arrayMediumQuestions = Array.from(mediumSet)
-	console.log(`Perguntas Médias: [${arrayMediumQuestions}]`)
-
-	return arrayMediumQuestions
 }
 
-function getIndicePerguntasDificeis() {
-	while (hardSet.size !== 7) {
-		const indiceQuestionsHard = Math.floor(Math.random() * (7 - 0))
-		if (!hardSet.has(indiceQuestionsHard)) {
-			hardSet.add(indiceQuestionsHard)
+async function getIndicePerguntasDificeis() {
+	try {
+		const hardQuestionsFilter = await getPerguntaDificil()
+		while (hardSet.size !== 5) {
+			const indiceQuestionsHard = Math.floor(Math.random() * hardQuestionsFilter.length)
+			if (!hardSet.has(indiceQuestionsHard)) {
+				hardSet.add(indiceQuestionsHard)
+			}
 		}
+	
+		const arrayHardQuestions = Array.from(hardSet)
+		console.log(`Perguntas Dificeis: [${arrayHardQuestions}] \n`)
+	
+		return arrayHardQuestions
+	} catch (error) {
+		console.log(error)
 	}
-
-	const arrayHardQuestions = Array.from(hardSet)
-	console.log(`Perguntas Dificeis: [${arrayHardQuestions}] \n`)
-
-	return arrayHardQuestions
 }
 
+//funcao gerador Joker
+async function getIndiceJoker() {
+	try {
+		const pergunta = await fs.readFile(PERGUNTA_ATUAL)
+		const perguntaLegivel = JSON.parse(pergunta.toString())
+
+		const jokerKeys = []
+		for (let i = 0; i < perguntaLegivel.options.length; i++) {
+			if (perguntaLegivel.options[i].key !== perguntaLegivel.answer) {
+				jokerKeys.push(perguntaLegivel.options[i].key)
+			}
+		}
+
+		const indice = Math.floor(Math.random() * (jokerKeys.length - 0))
+
+		const objKey = { jokerKey: jokerKeys[indice] }
+
+		return objKey
+	} catch (err) {
+		console.log(err)
+	}
+
+}
+
+async function apagaVisualJoker() {
+	const conteudo = await fs.readFile(JOGO)
+	const conteudoLegivel = JSON.parse(conteudo.toString())
+
+	conteudoLegivel.jogo.jokersP1.pop()
+
+	await fs.writeFile(JOGO, JSON.stringify(conteudoLegivel, null, 2))
+}
+
+async function incrementaID() {
+	return session_ID += 1
+}
 
 server.use(express.json());
 
-// URI's para Num Perguntas JSON
+// URI para gerar ID
+server.get('/geraID', async (req, res) => {
+	try {
+		const testeAsync = await incrementaID()
+		console.log(`ID do Jogo: ${testeAsync}`)
+		res.status(200).json(testeAsync)
+	} catch (err) {
+		res.status(500).send("Erro")
+	}
+})
 
+// URI para gravar Nome
+server.post('/nome', async (req, res) => {
+	try {
+
+		const conteudo = await fs.readFile(JOGO)
+		const conteudoLegivel = JSON.parse(conteudo.toString())
+
+		console.log(`Player Name: ${req.body.nome}`)
+		conteudoLegivel.jogo.nomeJogador = req.body.nome
+
+
+		await fs.writeFile(JOGO, JSON.stringify(conteudoLegivel, null, 2))
+
+		res.sendStatus(201)
+	} catch (err) {
+		res.status(500).send("Erro")
+	}
+})
+
+// URI's para Num Perguntas JSON - jogo/:id/numeroPergunta
 server.post('/numeroPergunta', async (req, res) => {
 	try {
 
 		const conteudo = await fs.readFile(JOGO)
-
 		const conteudoLegivel = JSON.parse(conteudo.toString())
-		
-		conteudoLegivel.jogoTemplate.perguntaNumero += 1
 
-		if (conteudoLegivel.jogoTemplate.perguntaNumero === 28) {
-			conteudoLegivel.jogoTemplate.perguntaNumero = 1
+		conteudoLegivel.jogo.perguntaNumero += 1
+
+		if (conteudoLegivel.jogo.perguntaNumero === 26) {
+			conteudoLegivel.jogo.perguntaNumero = 1
 		}
 		await fs.writeFile(JOGO, JSON.stringify(conteudoLegivel, null, 2))
 
@@ -132,13 +215,13 @@ server.get("/perguntas", async (req, res) => {
 		const mediumQuestionsFilter = await getPerguntaMedia()
 		const hardQuestionsFilter = await getPerguntaDificil()
 
-		const easyIndices = getIndicePerguntasEasy() // array de pos unicas
-		const mediumIndices = getIndicePerguntasMedias() // array de pos unicas
-		const hardIndices = getIndicePerguntasDificeis() // array de pos unicas
+		const easyIndices = await getIndicePerguntasEasy() // array de pos unicas
+		const mediumIndices = await getIndicePerguntasMedias() // array de pos unicas
+		const hardIndices = await getIndicePerguntasDificeis() // array de pos unicas
 
 		const dataNumPergunta = await fs.readFile(JOGO)
 		const dataNumPerguntaLegivel = JSON.parse(dataNumPergunta.toString())
-		const numPergunta = dataNumPerguntaLegivel.jogoTemplate.perguntaNumero
+		const numPergunta = dataNumPerguntaLegivel.jogo.perguntaNumero
 
 		if (numPergunta <= 10) {
 			timerControl = 30;
@@ -152,11 +235,13 @@ server.get("/perguntas", async (req, res) => {
 			pergunta = mediumQuestionsFilter[indice]
 		}
 
-		if (numPergunta > 20 && numPergunta <= 27) {
+		if (numPergunta > 20 && numPergunta <= 25) {
 			timerControl = 50;
 			let indice = hardIndices[numPergunta - 21]
 			pergunta = hardQuestionsFilter[indice]
 		}
+
+		await fs.writeFile(PERGUNTA_ATUAL, JSON.stringify(pergunta, null, 2))
 
 		res.status(200).json({
 			...pergunta,
@@ -175,8 +260,7 @@ server.get("/joker", async (req, res) => {
 
 		const conteudoLegivel = JSON.parse(conteudo.toString())
 
-
-		res.status(200).json(conteudoLegivel.jogoTemplate.jokersP1)
+		res.status(200).json(conteudoLegivel.jogo.jokersP1)
 	} catch (err) {
 		res.status(500).send("Erro")
 	}
@@ -184,41 +268,71 @@ server.get("/joker", async (req, res) => {
 
 server.delete('/joker', async (req, res) => {
 	try {
-		const conteudo = await fs.readFile(JOGO)
+		await apagaVisualJoker()
 
-		const conteudoLegivel = JSON.parse(conteudo.toString())
-
-		conteudoLegivel.jogoTemplate.jokersP1.pop()
-
-		await fs.writeFile(JOGO, JSON.stringify(conteudoLegivel, null, 2))
-
-		res.sendStatus(201)
+		const key = await getIndiceJoker()
+		console.log(key)
+		res.status(200).json(key)
 	} catch (err) {
 		res.status(500).send("Erro")
 	}
 })
 
 //URI's para PontosP1
-server.get('/pontosP1', async (req, res) => {
+server.get('/pontosScreen', async (req, res) => {
 	try {
 		const conteudo = await fs.readFile(JOGO)
-
 		const conteudoLegivel = JSON.parse(conteudo.toString())
 
 
-		res.status(200).json(conteudoLegivel.jogoTemplate.pontuacaoP1)
+		res.status(200).json(conteudoLegivel.jogo.pontuacaoP1)
 	} catch (err) {
 		res.status(500).send("Erro")
 	}
 })
 
-server.post('/maisPontosP1', async (req, res) => {
+server.post('/pontos', async (req, res) => {
+	try {
+
+		const pontosObj = await fs.readFile(JOGO)
+		const pontosObjLegivel = JSON.parse(pontosObj.toString())
+
+		const answerObj = await fs.readFile(PERGUNTA_ATUAL)
+		const answerObjLegivel = JSON.parse(answerObj.toString())
+
+		// comparacao da resposta errada
+		if (req.body.key !== answerObjLegivel.answer) {
+			if (pontosObjLegivel.jogo.pontuacaoP1 > 0) {
+				pontosObjLegivel.jogo.pontuacaoP1 -= 300
+			}
+
+			if (pontosObjLegivel.jogo.pontuacaoP1 <= 0) {
+				pontosObjLegivel.jogo.pontuacaoP1 = 0
+			}
+		}
+
+		// comparacao da resposta certa
+		if (req.body.key === answerObjLegivel.answer) {
+			pontosObjLegivel.jogo.pontuacaoP1 += 100
+		}
+
+		await fs.writeFile(JOGO, JSON.stringify(pontosObjLegivel, null, 2))
+
+		res.sendStatus(201)
+	} catch (err) {
+		res.status(500).send("Erro")
+	}
+})
+
+server.get('/pontosJoker', async (req, res) => {
 	try {
 		const conteudo = await fs.readFile(JOGO)
-
 		const conteudoLegivel = JSON.parse(conteudo.toString())
 
-		conteudoLegivel.jogoTemplate.pontuacaoP1 += 100
+		const jokerPontuacao = conteudoLegivel.jogo.jokersP1.length * 100;
+		conteudoLegivel.jogo.pontuacaoP1 += jokerPontuacao;
+
+
 
 		await fs.writeFile(JOGO, JSON.stringify(conteudoLegivel, null, 2))
 
@@ -228,19 +342,14 @@ server.post('/maisPontosP1', async (req, res) => {
 	}
 })
 
-server.delete('/menosPontosP1', async (req, res) => {
+server.post('/restartState', async (req, res) => {
 	try {
 		const conteudo = await fs.readFile(JOGO)
-
 		const conteudoLegivel = JSON.parse(conteudo.toString())
 
-		if (conteudoLegivel.jogoTemplate.pontuacaoP1 > 0) {
-			conteudoLegivel.jogoTemplate.pontuacaoP1 -= 300
-		}
+		conteudoLegivel.jogo.jokersP1 = [1, 1, 1, 1, 1, 1, 1];
+		conteudoLegivel.jogo.pontuacaoP1 = 0;
 
-		if (conteudoLegivel.jogoTemplate.pontuacaoP1 <= 0) {
-			conteudoLegivel.jogoTemplate.pontuacaoP1 = 0
-		}
 
 		await fs.writeFile(JOGO, JSON.stringify(conteudoLegivel, null, 2))
 
@@ -249,16 +358,13 @@ server.delete('/menosPontosP1', async (req, res) => {
 		res.status(500).send("Erro")
 	}
 })
-
-//URI's para PontosP2
-server.get('/pontosP2', async (req, res) => {
+//URI para controlo de video
+server.get('/video', async (req, res) => {
 	try {
 		const conteudo = await fs.readFile(JOGO)
-
 		const conteudoLegivel = JSON.parse(conteudo.toString())
 
-
-		res.status(200).json(conteudoLegivel.jogoTemplate.pontuacaoP2)
+		res.status(200).json(conteudoLegivel.jogo.perguntaNumero)
 	} catch (err) {
 		res.status(500).send("Erro")
 	}

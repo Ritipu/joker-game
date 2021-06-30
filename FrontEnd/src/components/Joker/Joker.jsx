@@ -1,36 +1,43 @@
 import React from 'react';
 import './Joker.css';
 
-
 export default class Joker extends React.Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			joker: []
+			joker: [],
 		}
+		this.keysENumeroJoker = this.keysENumeroJoker.bind(this)
 	}
 
 	componentDidMount() {
 		this.arrayPop()
 	}
 
-	arrayPop() {
-		fetch("/joker")
+	async arrayPop() {
+		await fetch("/joker")
 			.then(res => res.json())
 			.then(arrayJoker => this.setState(
 				{
 					joker: arrayJoker
 				}
 			))
+
 	}
 
+	async keysENumeroJoker() {
+		await this.props.getJokerKey(); // gera chave do joker a apagar
+		await this.arrayPop(); // apaga visualmente o joker
+		await this.props.disableJoker(); // set disabled = true
+	}
+	
 	render() {
 		return (
 			<div className="joker">
 				{
 					this.state.joker.map((joker, i) => (
-<<<<<<< Updated upstream
+
 						<button key={i} onClick={async (valor) => {
 							try {
 								const res = await fetch("/joker", {
@@ -45,10 +52,8 @@ export default class Joker extends React.Component {
 							this.arrayPop()
 						}}>
 							{joker}
-=======
 						<button key={i} disabled={this.props.jokerState} onClick={this.keysENumeroJoker} className="joker-button">
 							<img src="/assets/imagens/joker.svg" height="50px" className="joker-pikachu" alt="joker" />
->>>>>>> Stashed changes
 						</button>
 					))
 				}

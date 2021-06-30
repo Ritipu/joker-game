@@ -3,10 +3,9 @@
 }
 
 .videos {
-    height: 100;
-    width: 100;
+    height: 100vh;
     position: fixed;
-    z-index: -1;
+    z-index: -20;
 }
 
 .Jogo1 {
@@ -41,7 +40,6 @@
     transition: 0.3s;
     width: 150px;
     height: 100px;
-    display:flex;
     align-self: center;
 }
 
@@ -55,4 +53,8 @@
     height: 450px;
     display: flex;
     align-self: flex-end
+}
+
+.joker {
+    height: 30px;
 }

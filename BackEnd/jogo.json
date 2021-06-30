@@ -1,14 +1,9 @@
 {
-  "jogoTemplate": {
-<<<<<<< Updated upstream
-    "perguntaNumero": 7,
-=======
-    "id": 1,
-    "nomeJogador": "d",
-    "perguntaNumero": 1,
->>>>>>> Stashed changes
+  "jogo": {
+    "id": 0,
+    "nomeJogador": "teste",
+    "perguntaNumero": 6,
     "pontuacaoP1": 0,
-    "pontuacaoP2": 0,
     "jokersP1": [
       1,
       1,
@@ -18,15 +13,8 @@
       1,
       1
     ],
-    "jokersP2": [
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1
-    ],
-    "vencedor": ""
+    "perguntasFaceis": [],
+    "perguntasMedias": [],
+    "perguntasDificeis": []
   }
 }
