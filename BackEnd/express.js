@@ -349,6 +349,7 @@ server.post('/restartState', async (req, res) => {
 
 		conteudoLegivel.jogo.jokersP1 = [1, 1, 1, 1, 1, 1, 1];
 		conteudoLegivel.jogo.pontuacaoP1 = 0;
+		conteudoLegivel.jogo.perguntaNumero = 1;
 
 
 		await fs.writeFile(JOGO, JSON.stringify(conteudoLegivel, null, 2))

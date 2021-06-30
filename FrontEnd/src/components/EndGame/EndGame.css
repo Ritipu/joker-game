@@ -45,7 +45,6 @@
 .btnEndGame:hover {
     background-color: #ffda09;
     transform: scale(1.05);
-    color: #ffffff;
 }
 
 .btnEndGameImg {

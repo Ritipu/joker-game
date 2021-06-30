@@ -1,24 +1,24 @@
 {
   "level": "easy",
-  "number": 28,
-  "question": "Qual o primeiro filme live-action de pokemon?",
+  "number": 25,
+  "question": "Qual a Pokebola que tem 100% chances de apanhar um Pokemon?",
   "options": [
     {
       "key": "a",
-      "text": "Pokemon: Detective Pikachu"
+      "text": "Moon Ball"
     },
     {
       "key": "b",
-      "text": "Pokemon: Arceus and the Jewel of Life"
+      "text": "Ultra Ball"
     },
     {
       "key": "c",
-      "text": "Pokemon: Mewtwo Returns"
+      "text": "Master Ball"
     },
     {
       "key": "d",
-      "text": "Pokemon: Secret of the Unown"
+      "text": "Beast Ball"
     }
   ],
-  "answer": "a"
+  "answer": "c"
 }

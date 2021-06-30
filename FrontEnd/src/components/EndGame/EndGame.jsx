@@ -6,10 +6,6 @@ export default class EndGame extends React.Component {
 	async componentDidMount() {
 		await this.adicionaJokerPontos();
 		await this.props.pontosCalculo();
-		await fetch("/restartState", {
-			method: 'POST',
-			headers: { "Content-Type": "application/json" }
-		})
 	}
 
 	async adicionaJokerPontos() {
@@ -31,10 +27,8 @@ render() {
                     <div className="space"></div>
                     <p className="congrats">Parabéns {this.props.nomeJogador}!</p>
                     <p className="pontos">Acabaste com: <br /> <br />  {this.props.pontosDisplay} pontos</p>
-                    <button onClick={async (valor) => {
-					this.refresh()
-				}
-				}> <img src="./assets/imagens/pokeball.png" alt="Restart"/> Restart</button>
+                    <button className="btnEndGame"onClick={this.refresh}> 
+					<img src="./assets/imagens/pokeball.png" alt="Restart" className="btnEndGameImg"/> Restart</button>
 
                 </div>
         )
