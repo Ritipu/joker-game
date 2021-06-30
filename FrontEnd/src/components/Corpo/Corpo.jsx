@@ -71,7 +71,7 @@ export default class Corpo extends React.Component {
 	}
 	render() {
 		return (
-			<div className="Card">
+			<div id='borderimg' className="Card">
 				<h2>{this.state.timer}</h2>
 				<br />
 				<h2>{this.state.perguntaCurrente}</h2>

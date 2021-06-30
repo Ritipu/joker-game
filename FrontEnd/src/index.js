@@ -12,6 +12,7 @@ ReactDOM.render(
 );
 
 function onClickHandler(event) {
+
   if (event.target.tagName === 'INPUT') {
     const audioObj = new Audio('/assets/audio/clickButton.wav');
     audioObj.play();
@@ -20,18 +21,34 @@ function onClickHandler(event) {
     const audioObj = new Audio('/assets/audio/clickButton.wav');
     audioObj.play();
   }
+  else if (event.target.className === 'joker-button') {
+    const audioObj = new Audio('/assets/audio/pikachuSoundJoker.mp3');
+    audioObj.play();
+  } 
   else if (event.target.tagName === 'BUTTON') {
     const audioObj = new Audio('/assets/audio/clickButton.wav');
     audioObj.play();
   }
+
   else if (event.target.className === 'pokeBola') {
     const audioObj = new Audio('/assets/audio/clickButton.wav');
     audioObj.play();
   } 
+
+  else if (event.target.className === 'joker-pikachu') {
+    const audioObj = new Audio('/assets/audio/pikachuSoundJoker.mp3');
+    audioObj.play();
+  }
+  else if (event.target.className === 'joker') {
+    const audioObj = new Audio('/assets/audio/pikachuSoundJoker.mp3');
+    audioObj.play();
+  }
+
   else if (event.target.className === 'Joker-button') {
     const audioObj = new Audio('/assets/audio/clickButton.wav');
     audioObj.play();
   } 
+
   else {
     const audioObj = new Audio('/assets/audio/wrongClick.wav');
     audioObj.play();

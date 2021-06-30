@@ -5,6 +5,7 @@ import Joker from '../Joker/Joker';
 import EndGame from '../EndGame/EndGame';
 
 export default class Jogo extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -91,7 +92,6 @@ export default class Jogo extends React.Component {
   getEndGame() {
     this.setState({endGame: true})
   }
-
 
   render() {
     if(this.state.endGame === false) {

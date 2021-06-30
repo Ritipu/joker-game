@@ -37,8 +37,23 @@ export default class Joker extends React.Component {
 			<div className="joker">
 				{
 					this.state.joker.map((joker, i) => (
-						<button key={i} disabled={this.props.jokerState} onClick={this.keysENumeroJoker}>
-							<img src="/assets/imagens/joker.svg" height="80px"alt="joker" className="joker-button"/> Joker
+
+						<button key={i} onClick={async (valor) => {
+							try {
+								const res = await fetch("/joker", {
+									method: 'DELETE',
+									headers: {
+										"Content-Type": "application/json"
+									}
+								})
+							} catch (err) {
+								console.log(err);
+							}
+							this.arrayPop()
+						}}>
+							{joker}
+						<button key={i} disabled={this.props.jokerState} onClick={this.keysENumeroJoker} className="joker-button">
+							<img src="/assets/imagens/joker.svg" height="50px" className="joker-pikachu" alt="joker" />
 						</button>
 					))
 				}
