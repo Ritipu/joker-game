@@ -1,0 +1,24 @@
+{
+  "level": "easy",
+  "number": 42,
+  "question": "Qual destes Pokemon não é uma evolução da Eevee?",
+  "options": [
+    {
+      "key": "a",
+      "text": "Lapras"
+    },
+    {
+      "key": "b",
+      "text": "Flareon"
+    },
+    {
+      "key": "c",
+      "text": "Vaporeon"
+    },
+    {
+      "key": "d",
+      "text": "Jolteon"
+    }
+  ],
+  "answer": "a"
+}

@@ -6,6 +6,96 @@ import Pontuacao1 from '../Pontuacao/Pontuacao1';
 import Pontuacao2 from '../Pontuacao/Pontuacao2';
 
 export default class Jogo extends React.Component {
+<<<<<<< Updated upstream
+=======
+  constructor(props) {
+    super(props);
+    this.state = {
+      jokerKey: '',
+      numPergunta: 0,
+      endGame: false,
+      jokerState: false,
+      pontos: 0,
+      jogador: ""
+    }
+
+    this.disableJoker = this.disableJoker.bind(this)
+    this.enableJoker = this.enableJoker.bind(this)
+  }
+  componentDidMount() {
+    this.getPerguntaForVideo();
+    this.pontuacao();
+  }
+
+  async apagarRespostaErradaComJoker() {
+    await fetch("/joker", { method: 'DELETE' })
+      .then(response => response.json())
+      .then(response => this.setState({ jokerKey: response }));
+  }
+
+  getPerguntaForVideo() {
+    fetch("/video")
+      .then(response => response.json())
+      .then(response => this.setState({ numPergunta: response }));
+  }
+
+  getCorrectVideo() {
+
+    if (this.state.numPergunta > 0 && this.state.numPergunta <= 10) {
+      return "/assets/videos/perguntasFaceis.mp4" 
+    }
+
+    if (this.state.numPergunta > 10 && this.state.numPergunta <= 20) {
+      return "/assets/videos/perguntasMedias.mp4"
+    }
+
+    if (this.state.numPergunta > 20 ) {
+      return "/assets/videos/perguntasDificeis.mp4"
+    }
+  }
+
+  getCorrectAudio() {
+
+    if (this.state.numPergunta > 0 && this.state.numPergunta <= 10) {
+      return "/assets/audio/easyMusic.mp3" 
+    }
+
+    if (this.state.numPergunta > 10 && this.state.numPergunta <= 20) {
+      return "/assets/audio/mediumMusic.mp3"
+    }
+
+    if (this.state.numPergunta > 20 ) {
+      return "/assets/audio/hardMusic.mp3"
+    }
+  }
+
+  async pontuacao() {
+   await fetch("/pontosScreen")
+        .then(res => res.json())
+        .then(pontos => this.setState(
+            {
+                pontos: pontos
+            }
+        ))
+  }
+
+	clearJokerKey() {
+		this.setState({ jokerKey: '' });
+	}
+
+  async disableJoker() {
+    this.setState({ jokerState: true });
+  }
+
+  enableJoker() {
+    this.setState({ jokerState: false });
+  }
+
+  getEndGame() {
+    this.setState({endGame: true})
+  }
+
+>>>>>>> Stashed changes
 
   render() {
     return (

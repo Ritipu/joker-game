@@ -1,6 +1,12 @@
 {
   "jogoTemplate": {
+<<<<<<< Updated upstream
     "perguntaNumero": 7,
+=======
+    "id": 1,
+    "nomeJogador": "d",
+    "perguntaNumero": 1,
+>>>>>>> Stashed changes
     "pontuacaoP1": 0,
     "pontuacaoP2": 0,
     "jokersP1": [

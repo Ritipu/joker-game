@@ -13,8 +13,12 @@ ReactDOM.render(
 
 
 function onClickHandler(event) {
+<<<<<<< Updated upstream
   console.log(event)
   console.log(event.target.tagName)
+=======
+  console.log(event.target.className)
+>>>>>>> Stashed changes
   if (event.target.tagName === 'INPUT') {
     const audioObj = new Audio('/assets/audio/clickButton.wav');
     audioObj.play();
@@ -23,10 +27,29 @@ function onClickHandler(event) {
     const audioObj = new Audio('/assets/audio/clickButton.wav');
     audioObj.play();
   }
+  else if (event.target.className === 'joker-button') {
+    const audioObj = new Audio('/assets/audio/pikachuSoundJoker.mp3');
+    audioObj.play();
+  } 
   else if (event.target.tagName === 'BUTTON') {
     const audioObj = new Audio('/assets/audio/clickButton.wav');
     audioObj.play();
   }
+<<<<<<< Updated upstream
+=======
+  else if (event.target.className === 'pokeBola') {
+    const audioObj = new Audio('/assets/audio/clickButton.wav');
+    audioObj.play();
+  } 
+  else if (event.target.className === 'joker-pikachu') {
+    const audioObj = new Audio('/assets/audio/pikachuSoundJoker.mp3');
+    audioObj.play();
+  }
+  else if (event.target.className === 'joker') {
+    const audioObj = new Audio('/assets/audio/pikachuSoundJoker.mp3');
+    audioObj.play();
+  }
+>>>>>>> Stashed changes
   else {
     const audioObj = new Audio('/assets/audio/wrongClick.wav');
     audioObj.play();
