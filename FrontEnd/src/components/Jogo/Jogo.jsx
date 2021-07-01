@@ -26,13 +26,13 @@ export default class Jogo extends React.Component {
   }
 
   async apagarRespostaErradaComJoker() {
-    await fetch("/joker", { method: 'DELETE' })
+    await fetch(`/joker/${this.props.id}`, { method: 'DELETE' })
       .then(response => response.json())
       .then(response => this.setState({ jokerKey: response }));
   }
 
-  getPerguntaForVideo() {
-    fetch("/video")
+  async getPerguntaForVideo() {
+    await fetch(`/video/${this.props.id}`)
       .then(response => response.json())
       .then(response => this.setState({ numPergunta: response }));
   }
@@ -40,14 +40,14 @@ export default class Jogo extends React.Component {
   getCorrectVideo() {
 
     if (this.state.numPergunta > 0 && this.state.numPergunta <= 10) {
-      return "/assets/videos/perguntasFaceis.mp4" 
+      return "/assets/videos/perguntasFaceis.mp4"
     }
 
     if (this.state.numPergunta > 10 && this.state.numPergunta <= 20) {
       return "/assets/videos/perguntasMedias.mp4"
     }
 
-    if (this.state.numPergunta > 20 ) {
+    if (this.state.numPergunta > 20) {
       return "/assets/videos/perguntasDificeis.mp4"
     }
   }
@@ -55,31 +55,31 @@ export default class Jogo extends React.Component {
   getCorrectAudio() {
 
     if (this.state.numPergunta > 0 && this.state.numPergunta <= 10) {
-      return "/assets/audio/easyMusic.mp3" 
+      return "/assets/audio/easyMusic.mp3"
     }
 
     if (this.state.numPergunta > 10 && this.state.numPergunta <= 20) {
       return "/assets/audio/mediumMusic.mp3"
     }
 
-    if (this.state.numPergunta > 20 ) {
+    if (this.state.numPergunta > 20) {
       return "/assets/audio/hardMusic.mp3"
     }
   }
 
   async pontuacao() {
-   await fetch("/pontosScreen")
-        .then(res => res.json())
-        .then(pontos => this.setState(
-            {
-                pontos: pontos
-            }
-        ))
+    await fetch(`/pontosScreen/${this.props.id}`)
+      .then(res => res.json())
+      .then(pontos => this.setState(
+        {
+          pontos: pontos
+        }
+      ))
   }
 
-	clearJokerKey() {
-		this.setState({ jokerKey: '' });
-	}
+  clearJokerKey() {
+    this.setState({ jokerKey: '' });
+  }
 
   async disableJoker() {
     this.setState({ jokerState: true });
@@ -90,11 +90,11 @@ export default class Jogo extends React.Component {
   }
 
   getEndGame() {
-    this.setState({endGame: true})
+    this.setState({ endGame: true })
   }
 
   render() {
-    if(this.state.endGame === false) {
+    if (this.state.endGame === false) {
       return (
         <div className="Jogo">
 
@@ -106,29 +106,38 @@ export default class Jogo extends React.Component {
 
           <div className="Pontos">
             <div className="ptPlayer1">
-              <h2>{this.props.nomeJogador}</h2> <br/>
+              <h2>{this.props.nomeJogador}</h2> <br />
               <h2>{`Pontos: ${this.state.pontos}`}</h2>
             </div>
             <div className="box-logo">
               <img className="Logo-top" src="assets/logos/pokejoker.png" alt="Logo do Jogo" />
             </div>
-            
+
             {/* <div className="ptPlayer2"><Pontuacao2 /></div> */}
           </div>
 
           <div className="Jogo1">
 
-            <div className="joker"><Joker getJokerKey={() => this.apagarRespostaErradaComJoker()}
-            jokerState={this.state.jokerState} 
-            disableJoker={() => this.disableJoker()}/></div>
-            
-            <div className="jogo"><Corpo jokerKey={this.state.jokerKey} 
-            clearJokerKey={() => this.clearJokerKey()} 
-            videoControl={() => this.getPerguntaForVideo()}
-            getEndGame={() => this.getEndGame()}
-            enableJoker={() => this.enableJoker()}
-            pontuacao={() => this.pontuacao()}
-            /></div>
+            <div className="joker">
+              <Joker
+                id={this.props.id}
+                getJokerKey={() => this.apagarRespostaErradaComJoker()}
+                jokerState={this.state.jokerState}
+                disableJoker={() => this.disableJoker()}
+              />
+            </div>
+
+            <div className="jogo">
+              <Corpo
+                id={this.props.id}
+                jokerKey={this.state.jokerKey}
+                clearJokerKey={() => this.clearJokerKey()}
+                videoControl={() => this.getPerguntaForVideo()}
+                getEndGame={() => this.getEndGame()}
+                enableJoker={() => this.enableJoker()}
+                pontuacao={() => this.pontuacao()}
+              />
+            </div>
 
             <img className="Oak" src="/assets/imagens/oak.png" alt="Professor Carvalho" />
           </div>
@@ -136,7 +145,11 @@ export default class Jogo extends React.Component {
       )
     } else {
       return (
-        <EndGame pontosCalculo={() => this.pontuacao()} pontosDisplay={this.state.pontos} nomeJogador={this.props.nomeJogador}/>
+        <EndGame
+          id={this.props.id}
+          pontosCalculo={() => this.pontuacao()}
+          pontosDisplay={this.state.pontos}
+          nomeJogador={this.props.nomeJogador} />
       )
     }
   }
