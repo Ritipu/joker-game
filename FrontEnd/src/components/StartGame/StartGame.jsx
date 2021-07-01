@@ -26,23 +26,23 @@ export default class StartGame extends React.Component {
     })
   }
 
-
-  sendName() {
-    const nome = { nome: this.state.nome }
-    fetch("/nome", {
-      method: 'POST', body: JSON.stringify(nome) , headers: {"content-type": 'application/json'}
+  async sendID() {
+    
+   await fetch(`/gravaJogo/${this.state.id}`, {
+      method: 'POST',
+      body: JSON.stringify({ nome: this.state.nome }) , 
+      headers: { "Content-Type": "application/json" }
     })
   }
   
   jogo() {
-    fetch(`/gravaJogo/${this.state.id}`)
+    this.sendID();
     this.setState({ gameStart: true });
-    this.sendName();
   }
 
   formChange(form) {
+    
     this.setState({ nome: form.target.value });
-
   }
 
   // formSubmit(form) {
@@ -76,7 +76,7 @@ export default class StartGame extends React.Component {
     } else {
       return (
         <div>
-          <Jogo nomeJogador={this.state.nome} idJogo={this.state.id} />
+          <Jogo nomeJogador={this.state.nome} id={this.state.id} />
         </div>
       )
     }

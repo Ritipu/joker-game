@@ -9,7 +9,7 @@ export default class EndGame extends React.Component {
 	}
 
 	async adicionaJokerPontos() {
-		await fetch("/pontosJoker");
+		await fetch(`/pontosJoker/${this.props.id}`);
 	}
 
 	refresh() {
