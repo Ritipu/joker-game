@@ -1,24 +1,24 @@
 {
   "level": "easy",
-  "number": 25,
-  "question": "Qual a Pokebola que tem 100% chances de apanhar um Pokemon?",
+  "number": 41,
+  "question": "Qual o ponto fraco da personagem Brock?",
   "options": [
     {
       "key": "a",
-      "text": "Moon Ball"
+      "text": "Mulheres"
     },
     {
       "key": "b",
-      "text": "Ultra Ball"
+      "text": "Paisagens bonitas"
     },
     {
       "key": "c",
-      "text": "Master Ball"
+      "text": "Comida saborosa"
     },
     {
       "key": "d",
-      "text": "Beast Ball"
+      "text": "Pokemons de água"
     }
   ],
-  "answer": "c"
+  "answer": "a"
 }

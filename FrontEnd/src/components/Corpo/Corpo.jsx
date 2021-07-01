@@ -15,11 +15,19 @@ export default class Corpo extends React.Component {
 
 	componentDidMount() {
 		setInterval(() => this.time(), 1000);
+		this.savePerguntas();
 		this.getPergunta();
 	}
 
+	savePerguntas() {
+		fetch(`/gravaPerguntas/${this.props.id}`, {
+			method: 'POST',
+			headers: {"content-type": 'application/json'}
+		  })
+	}
+
 	getPergunta() {
-		fetch("/perguntas")
+		fetch(`/perguntas/${this.props.id}`)
 			.then(response => response.json())
 			.then(questions => this.setState(
 				{
@@ -41,15 +49,15 @@ export default class Corpo extends React.Component {
 
 		if (this.state.timer - 1 === 0) {
 			if (this.state.timerControl > 10 && this.state.timerControl < 20) {
-				fetch("/numeroPergunta", { method: 'POST' })
+				fetch(`/numeroPergunta/${this.props.id}`, { method: 'POST' })
 				this.gameController()
 				this.setState({ timer: 40 })
 			} else if (this.state.timerControl > 20) {
-				fetch("/numeroPergunta", { method: 'POST' })
+				fetch(`/numeroPergunta/${this.props.id}`, { method: 'POST' })
 				this.gameController()
 				this.setState({ timer: 50 })
 			} else {
-				fetch("/numeroPergunta", { method: 'POST' })
+				fetch(`/numeroPergunta/${this.props.id}`, { method: 'POST' })
 				this.gameController()
 				this.setState({ timer: 30 })
 			}
@@ -88,7 +96,7 @@ export default class Corpo extends React.Component {
 									disabled={this.props.jokerKey.jokerKey !== res.key ? false : true}
 									onClick={async (valor) => {
 										try {
-											await fetch("/numeroPergunta", {
+											await fetch(`/numeroPergunta/${this.props.id}`, {
 												method: 'POST',
 												headers: {
 													"Content-Type": "application/json"
@@ -99,7 +107,7 @@ export default class Corpo extends React.Component {
 										}
 
 										try {
-											await fetch("/pontos", {
+											await fetch(`/pontos/${this.props.id}`, {
 												method: 'POST',
 												body: JSON.stringify(res),
 												headers: {

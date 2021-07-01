@@ -16,7 +16,7 @@ export default class Joker extends React.Component {
 	}
 
 	async arrayPop() {
-		await fetch("/joker")
+		await fetch(`/joker/${this.props.id}`)
 			.then(res => res.json())
 			.then(arrayJoker => this.setState(
 				{
