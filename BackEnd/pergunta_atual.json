@@ -1,24 +1,24 @@
 {
   "level": "easy",
-  "number": 41,
-  "question": "Qual o ponto fraco da personagem Brock?",
+  "number": 8,
+  "question": "Que Pokemon se transforma numa Pokedex?",
   "options": [
     {
       "key": "a",
-      "text": "Mulheres"
+      "text": "Gengar"
     },
     {
       "key": "b",
-      "text": "Paisagens bonitas"
+      "text": "Rotom"
     },
     {
       "key": "c",
-      "text": "Comida saborosa"
+      "text": "Clefairy"
     },
     {
       "key": "d",
-      "text": "Pokemons de água"
+      "text": "Mew"
     }
   ],
-  "answer": "a"
+  "answer": "b"
 }

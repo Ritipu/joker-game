@@ -387,7 +387,10 @@ server.post('/restartState', async (req, res) => {
 		conteudoLegivel.jogo.pontuacaoP1 = 0;
 		conteudoLegivel.jogo.perguntaNumero = 1;
 
-
+		easySet.clear();
+		mediumSet.clear();
+		hardSet.clear();
+		
 		await fs.writeFile(JOGO, JSON.stringify(conteudoLegivel, null, 2))
 
 		res.sendStatus(201)
