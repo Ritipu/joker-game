@@ -25,3 +25,8 @@ Um jogo baseado no programa Joker da RTP1
 Google Fonts
 Press Start 2P
 QuickSand
+
+## Instructions
+For the hard difficulty video to work, you need to download the video. <br />
+[Downloado here](https://mega.nz/file/hZZ3SAgL#Favwvvzr0EzWekAD2lr2tZhs473OLtZ9s-rY6pVPa5Q) <br />
+Put that video in Joker/FrontEnd/public/assets/videos
