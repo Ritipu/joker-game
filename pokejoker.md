@@ -21,23 +21,21 @@ O tema pokémon foi decidido pelo facto de todos os membros do grupo gostarem de
 
 ## Os Desafios!
 
-* Os maiores desafios
-    + Entender como funcionam as props.
-    + Compreender as ligações assíncronas do servidor.
-    + Compreender o funcionamento das websockets.
++ Entender como funcionam as props.
++ Compreender as ligações assíncronas do servidor.
++ Compreender o funcionamento das websockets.
 
     ![Magicarp](https://67.media.tumblr.com/e8ed253b9bfb6df3e356cb0944d0d01d/tumblr_mzbiwntmuI1qfqgb9o1_r9_500.gif)
 
 ---
 
-## Os Desafios!
+## O mais interessante e divertido!
 
-* O mais divertido
-    + Compreender as ligações internas do React.
-    + Realizar o poder das ferramentas utilizadas.
-    + Ver o conteúdo a tomar forma em conjunto com servidor.
-    + A nostalgia em relação ao tema.
-    ![Togepi](https://thumbs.gfycat.com/DecisiveEnchantedChamois-size_restricted.gif)
++ Compreender as ligações internas do React.
++ Realizar o poder das ferramentas utilizadas.
++ Ver o conteúdo a tomar forma em conjunto com servidor.
++ A nostalgia em relação ao tema.
+![Togepi](https://thumbs.gfycat.com/DecisiveEnchantedChamois-size_restricted.gif)
    
 
 ---
