@@ -1,4 +1,4 @@
-# Joker 1x1 | React, Express, WebSockets
+# Joker | React & Express
 
 Um jogo baseado no programa Joker da RTP1
 
